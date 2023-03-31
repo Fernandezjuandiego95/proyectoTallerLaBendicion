@@ -7,12 +7,10 @@
 
     try {
         $connection = new PDO("mysql:host=".SERVER.";dbname=".DATABASE, USERNAME, PASSWORD);
-        echo ("Conexion Exitosa! ✔😀");
     } 
     catch (PDOException $e) {
          exit("Error: " . $e->getMessage() . "<br> No se pudo establecer conexion con la base de datos ❌⚠🤦‍♂️");
     }
     
-
 
 ?>
