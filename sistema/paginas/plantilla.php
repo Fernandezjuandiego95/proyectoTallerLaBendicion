@@ -36,11 +36,11 @@
   
   <div class="wrapper">
 
-    <!-- Preloader -->
+    <!-- Preloader 
     <div class="preloader flex-column justify-content-center align-items-center">
       <img class="animation__shake" src="../assets/img/logo_circulo.png" alt="Logo" height="60" width="60">
     </div>
-
+   -->
         <?php include "componentes/menu.php";?>
 
         <?php include "componentes/header.php";?>
@@ -104,6 +104,11 @@
 <script src="../assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<!-- SweetAlert2 -->
+<script src="../ssets/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- Toastr -->
+<script src="../ssets/plugins/toastr/toastr.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../assets/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -141,6 +146,7 @@
 <script src="../assets/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../assets/dist/js/pages/dashboard.js"></script>
+<!-- Page specific script -->
 
 </body>
 </html>
