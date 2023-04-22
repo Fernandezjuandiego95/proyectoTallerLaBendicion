@@ -1,0 +1,99 @@
+*, *:after, *:before {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    --color-pricpal:#FFCB51;
+}
+
+.barra__buscador {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid #818181;
+}
+.formulario {
+    display: inline-block;
+    width: 60%;
+    height: 50px;
+    overflow: hidden;
+    margin: auto;
+    margin-left: 5%;
+}
+form .input__text {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #F3D180;
+    background-color: rgba(255, 254, 241, 0.71);
+    border-radius: 8px;
+    color: #C4C4C4;
+    display: block;
+    font-size: 16px;
+    padding: 10px 15px;
+    outline: medium none;
+    font-family: 'Montserrat';
+}
+
+form .input__text:focus {
+    border: 2px solid var(--color-pricpal);
+    color: #000000;
+}
+
+.buscar_placa{
+  border: none;
+  width: 30px;
+  height: 30px;
+  background-color:transparent;
+  color: transparent;
+  background-image: url(../img/busqueda.png);
+  background-size: cover;
+  position: absolute;
+  margin-left: 40%;
+}
+.buscar_placa:hover{
+  width: 34px;
+  height: 34px;
+}
+.buscar_placa:active{
+    width: 28px;
+    height: 28px;
+  }
+
+.field-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.Businessman{
+    width: 90px;
+    height: 102px; 
+    margin-left: 10%;  
+}
+
+.personal_info{
+    width: 300px;
+    height: 160px; 
+}
+
+.section_panel{
+  width: 50%;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.BusquedaNoencontrada{
+    font-family: 'Montserrat';
+    font-size: 30px;
+    font-weight: 700;
+    color:#8b6203;
+    text-align: center;
+    text-shadow: 0px 6px 10px #6f6f6fe4;
+}

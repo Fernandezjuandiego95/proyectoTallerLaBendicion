@@ -22,8 +22,9 @@ if (isset($_POST['login'])) {
             $_SESSION['user_cedula'] = $result['cedula'];
             $_SESSION['user_rol'] = $result['idrol1'];
             $_SESSION['user_nombre'] = $result['nombre'];
+            $_SESSION['user_apellido'] = $result['apellido'];
             echo '<script>alert("¡Bienvenido!")</script>';
-            header("location:pagina/index.php");
+            header("location:paginas/index.php?evento=99");
         } else {
             echo '<script>alert ("Contraseña incorrecta")</script>';
         }
@@ -37,7 +38,7 @@ if (isset($_POST['login'])) {
 
 <HTML>
 <head>
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="assets/css/estilos_login.css">
     <title>Iniciar Sesion</title>
 </head>
 <body>

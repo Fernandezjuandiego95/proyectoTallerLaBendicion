@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-03-2023 a las 22:47:44
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 22-04-2023 a las 02:34:16
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `estados` (
   `idestado` int(2) NOT NULL,
   `estado` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `estados`
+--
+
+INSERT INTO `estados` (`idestado`, `estado`) VALUES
+(1, 'Espera'),
+(2, 'Revision'),
+(3, 'Proceso'),
+(4, 'Verificacion'),
+(5, 'Finalizado'),
+(6, 'Entregada');
 
 -- --------------------------------------------------------
 
@@ -41,8 +53,21 @@ CREATE TABLE `estados` (
 CREATE TABLE `modulos` (
   `idmodulo` int(11) NOT NULL,
   `modulo` varchar(60) NOT NULL,
-  `url` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `url` varchar(100) NOT NULL,
+  `icono` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `modulos`
+--
+
+INSERT INTO `modulos` (`idmodulo`, `modulo`, `url`, `icono`) VALUES
+(1, 'INICIO', 'index.php?evento=0', 'fa fa-home'),
+(2, 'EMPLEADOS', 'index.php?evento=1', 'far fa-address-card'),
+(3, 'CLIENTES', 'index.php?evento=2', 'fa fa-motorcycle'),
+(4, 'VEHICULOS', 'index.php?evento=3', 'fa fa-motorcycle'),
+(5, 'AJUSTES', 'index.php?evento=4', 'fa fa-tools'),
+(6, 'SALIR', 'salir.php', 'far fa-arrow-alt-circle-right');
 
 -- --------------------------------------------------------
 
@@ -54,7 +79,7 @@ CREATE TABLE `modulos_permisos` (
   `idmodulo_permiso` int(2) NOT NULL,
   `idmodulo2` int(2) NOT NULL,
   `idpermiso2` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -65,7 +90,7 @@ CREATE TABLE `modulos_permisos` (
 CREATE TABLE `permisos` (
   `idpermiso` int(2) NOT NULL,
   `permiso` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -75,17 +100,18 @@ CREATE TABLE `permisos` (
 
 CREATE TABLE `roles` (
   `idrol` int(2) NOT NULL,
-  `rol` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `rol` varchar(45) NOT NULL,
+  `icono` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `roles`
 --
 
-INSERT INTO `roles` (`idrol`, `rol`) VALUES
-(1, 'administrador'),
-(2, 'Empleado'),
-(3, 'Cliente');
+INSERT INTO `roles` (`idrol`, `rol`, `icono`) VALUES
+(1, 'Administrador', '../assets/img/administrador.png'),
+(2, 'Empleado', '../assets/img/empleado.png'),
+(3, 'Cliente', '../assets/img/cliente.png');
 
 -- --------------------------------------------------------
 
@@ -97,7 +123,22 @@ CREATE TABLE `roles_modulos` (
   `idrole_modulo` int(2) NOT NULL,
   `idrol2` int(2) NOT NULL,
   `idmodulo1` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `roles_modulos`
+--
+
+INSERT INTO `roles_modulos` (`idrole_modulo`, `idrol2`, `idmodulo1`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 1, 4),
+(5, 1, 5),
+(6, 1, 6),
+(7, 3, 1),
+(8, 3, 5),
+(9, 3, 6);
 
 -- --------------------------------------------------------
 
@@ -113,7 +154,7 @@ CREATE TABLE `usuarios` (
   `celular` bigint(200) NOT NULL,
   `password` varchar(255) NOT NULL,
   `idrol1` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -134,7 +175,7 @@ CREATE TABLE `usuarios_permisos` (
   `idusuario_permiso` int(2) NOT NULL,
   `cedula1` bigint(10) NOT NULL,
   `idpermiso1` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -147,7 +188,14 @@ CREATE TABLE `vehiculo` (
   `color` varchar(45) NOT NULL,
   `marca` varchar(45) NOT NULL,
   `cedula2` bigint(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `vehiculo`
+--
+
+INSERT INTO `vehiculo` (`placa`, `color`, `marca`, `cedula2`) VALUES
+('dr1-5', 'rojo', 'boxer', 1005646517);
 
 -- --------------------------------------------------------
 
@@ -163,7 +211,14 @@ CREATE TABLE `vehiculos_estados` (
   `diagnostico_salida` varchar(150) NOT NULL,
   `placa1` varchar(6) NOT NULL,
   `idestado1` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `vehiculos_estados`
+--
+
+INSERT INTO `vehiculos_estados` (`idvehicul_estado`, `fecha_ingreso`, `diagnostico_entrada`, `fecha_salida`, `diagnostico_salida`, `placa1`, `idestado1`) VALUES
+(1, '2023-04-18', 'Sonido(tik-tak) al inetrior del motor', '2023-04-20', 'Ajuste de las valvulas del motor', 'dr1-5', 6);
 
 --
 -- Índices para tablas volcadas
@@ -247,13 +302,13 @@ ALTER TABLE `vehiculos_estados`
 -- AUTO_INCREMENT de la tabla `estados`
 --
 ALTER TABLE `estados`
-  MODIFY `idestado` int(2) NOT NULL AUTO_INCREMENT;
+  MODIFY `idestado` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `modulos`
 --
 ALTER TABLE `modulos`
-  MODIFY `idmodulo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idmodulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `modulos_permisos`
@@ -271,7 +326,7 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `roles_modulos`
 --
 ALTER TABLE `roles_modulos`
-  MODIFY `idrole_modulo` int(2) NOT NULL AUTO_INCREMENT;
+  MODIFY `idrole_modulo` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_permisos`
@@ -283,7 +338,7 @@ ALTER TABLE `usuarios_permisos`
 -- AUTO_INCREMENT de la tabla `vehiculos_estados`
 --
 ALTER TABLE `vehiculos_estados`
-  MODIFY `idvehicul_estado` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `idvehicul_estado` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
