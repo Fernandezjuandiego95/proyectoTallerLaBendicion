@@ -102,3 +102,78 @@
    align-items: flex-end;
 
 }
+
+.modal_contenido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.text_cambiar{
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size:   24px;
+    line-height: 19px;
+}
+
+.btn-cambiar, .btn-cancelar{
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 12px 10px;
+    background: #A3FF83;
+    border: 1px solid #27B404;
+    border-radius: 8px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 19px;
+    color: #034509;
+}
+
+.btn-cambiar:hover{
+    background: #86f462;
+    border: 1px solid #166f00;
+}
+.btn-cambiar:active, .btn-cancelar:active{
+    font-size: 16px;
+    padding: 10px 8px;
+}
+
+.btn-cancelar{
+    background: #FDFED7;
+    border: 1px solid #D7D033;
+    color: #7F8201;
+}
+.btn-cancelar:hover{
+    background: #ffffff00;
+    border: 1px solid #d7cf33c4;
+}
+
+
+.toast_style {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    box-shadow: 2px 8px 5px rgba(12, 227, 8, 0.5);
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    z-index: 99999;
+    border: 2px solid #71F931;
+    font-size: 20px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  
