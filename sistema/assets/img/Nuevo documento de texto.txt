@@ -1,6 +1,4 @@
 <?php
-//Inicializar la variable $connection (se asume que esto se hace en algún otro archivo incluido)
-$contrasena_actualizada = null;
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
   
@@ -19,12 +17,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       $actualizar->bindParam(":cedula", $cedula); 
       $actualizar->execute();
      
-      //Establecer la variable $contrasena_actualizada a true para mostrar el Toast de éxito
-     $contrasena_actualizada = true;
+      echo '<script>showToast("Contraseña cambiada correctamente")</script>';
   } else{
-     //Establecer la variable $contrasena_actualizada a false para mostrar el Toast de error
-      $contrasena_actualizada = false;
-    }
+    echo '<script>showToast("Las contraseñas no coinciden")</script>';
+  }
 }
 
 ?>
@@ -42,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   <br>
   <input class="input-ajustes" type="password" id="verificacion" name="verificacion"  placeholder="Confirme su nueva contraseña" required/>
   <br>
-  <button type="button" class="btn-ajustes" data-toggle="modal" data-target="#modal-cambiar-contrasena">Cambiar</button>
+  <input type="submit" class="btn-ajustes"  value="Cambiar"/>
 </form>
 <!----------------Fin Formulario----------------->
 
@@ -76,45 +72,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="modal-footer justify-content-right" style="border-top:1px solid #D1D5DB;">
               <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn-cambiar" name="cambiar">Cambiar</button>
+              <button type="submit"  class="btn-cambiar" name="cambiar" id="btn-confirmar-cambiar">Cambiar</button>
             </div>
     </div>
   </div>
 </div>
 <!--------------Fin ventana modal-------------->
-
-<script>
-  $(function() {
-    <?php if(isset($contrasena_actualizada) && $contrasena_actualizada): ?>
-      var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000
-      });
-
-      Toast.fire({
-        icon: 'success',
-        title: 'Contraseña actualizada'
-      });
-    <?php elseif(isset($contrasena_actualizada) && !$contrasena_actualizada): ?>
-      var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000
-      });
-
-      Toast.fire({
-        icon: 'error',
-        title: 'Las contraseñas no coinciden'
-      });
-    <?php endif; ?>
-  });
-
-  // Confirmar el cambio de contraseña
-  $('#form-cambiar-contrasena').submit(function(e) {
-    e.preventDefault();
-    $('#modal-cambiar-contrasena').modal('show');
-  });
-</script>
