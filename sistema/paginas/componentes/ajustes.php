@@ -1,3 +1,7 @@
+
+<div id="mensaje" style="display:none">El registro se ha guardado correctamente.</div>
+
+
 <?php
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
