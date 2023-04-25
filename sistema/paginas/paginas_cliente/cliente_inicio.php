@@ -1,4 +1,4 @@
-
+<!------------------------Barra Buscar------------------------>
 <div class="barra__buscador">
     <img src="../assets/img/Businessman.png" alt="ilustracion" class="Businessman">
     <form action="" class="formulario" method="post">
@@ -10,6 +10,11 @@
     </form>
 </div>
 <br/>
+<!----------------------Fin Barra Buscar---------------------->
+
+
+<!------------------------Codigo PHP-------------------------->
+<!------------------------------------------------------------>
 <?php
 	// metodo buscar
 	if(isset ($_POST['buscar_placa'])){
@@ -30,15 +35,15 @@
       echo '<div >
             <div class="card" style=" width: 67%;  margin:auto;">        
               <div class="card-body">
-                <table id="tablaCliente" class="table table-bordered table-striped">
+                <table id="tablaCliente" class="table table-bordered table-striped align-middle">
                   <thead>
                     <tr>
                       <th>Placa</th>
                       <th>Fecha Ingreso</th>
                       <th>Estado</th>
                       <th>Fecha Salida</th>
-                      <th>Diagnostico De Entrada</th>
-                      <th>Diagnostico De Salida</th>
+                      <th>Diagnostico <br> De Entrada</th>
+                      <th>Diagnostico <br> De Salida</th>
                     </tr>
                   </thead>
                   <tbody>';
@@ -48,8 +53,16 @@
                         <td>". $fila['fecha_ingreso'] ."</td>
                         <td>". $fila['estado'] ."</td>
                         <td>". $fila['fecha_salida'] ."</td>
-                        <td>". $fila['diagnostico_entrada'] ."</td>
-                        <td>". $fila['diagnostico_salida'] ."</td>
+                        <td>".
+                              '<a class="btn btn-app bg-cyan" data-toggle="modal" data-target="#modal-lg-D-entrada">
+                              <i class="fas fa-envelope"></i> Ver
+                              </a>'
+                        ."</td>
+                        <td>". 
+                             '<a class="btn btn-app bg-teal" data-toggle="modal" data-target="#modal-lg-D-salida">
+                              <i class="fas fa-envelope"></i> Ver
+                              </a>'
+                        ."</td>
                       </tr>";
         }
                   echo '
@@ -63,8 +76,70 @@
   }
   $connection = null;
 ?>
+<!---------------------Fin codigo PHP-------------------------->
 
+<!----------------------Ilustracion---------------------------->
 <section class="section_panel">
 <img src="../assets/img/personal_info.svg" alt="ilustracion" class="personal_info">
 </section>
+<!---------------------Fin Ilustracion-------------------------->
 
+
+<!------------------Modal Diagnostico Entrada---------------->
+<!----------------------------------------------------------->
+<div class="modal fade" id="modal-lg-D-entrada">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+          <div class="modal-header" style="border-bottom: 4px solid #AEC0FF; font-family: 'Open Sans';">
+            <h4 class="modal-title">Diagnostico De Entrada</h4>
+            <button type="button" class="close" style="color:red; font-size:30px;" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="div-modal-body">
+            <i class="fas fa-caret-left fa-2x"></i>
+             <?php foreach($resultado_busqueda as $fila){
+                      echo '<p class="parrafo-modal">'. $fila['diagnostico_entrada'].'</p>';
+              } ?>
+            </div>
+          </div>
+
+          <div class="modal-footer justify-content-right" style="border-top:1px solid #D1D5DB;">
+            <button type="button" class="btn-cancelar" data-dismiss="modal">Cerrar</button>
+          </div>
+    </div>
+ </div>
+</div>
+<!-------------Fin Modal diagnostico Entrada-------------->
+
+
+<!------------------Modal Diagnostico Salida---------------->
+<!----------------------------------------------------------->
+<div class="modal fade" id="modal-lg-D-salida">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+          <div class="modal-header" style="border-bottom: 4px solid #AEC0FF; font-family: 'Open Sans';">
+            <h4 class="modal-title">Diagnostico De Salida</h4>
+            <button type="button" class="close" style="color:red; font-size:30px;" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="div-modal-body">
+              <i class="fas fa-caret-left fa-2x"></i>
+               <?php foreach($resultado_busqueda as $fila){
+                      echo '<p class="parrafo-modal">'. $fila['diagnostico_salida'].'</p>';
+               } ?>
+            </div>
+          </div>
+
+          <div class="modal-footer justify-content-right" style="border-top:1px solid #D1D5DB;">
+            <button type="button" class="btn-cancelar" data-dismiss="modal">Cerrar</button>
+          </div>
+    </div>
+ </div>
+</div>
+<!-------------Fin Modal diagnostico Entrada-------------->
