@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-04-2023 a las 02:34:16
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 25-04-2023 a las 00:03:37
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `estados` (
   `idestado` int(2) NOT NULL,
   `estado` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `estados`
@@ -55,7 +55,7 @@ CREATE TABLE `modulos` (
   `modulo` varchar(60) NOT NULL,
   `url` varchar(100) NOT NULL,
   `icono` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `modulos`
@@ -64,7 +64,7 @@ CREATE TABLE `modulos` (
 INSERT INTO `modulos` (`idmodulo`, `modulo`, `url`, `icono`) VALUES
 (1, 'INICIO', 'index.php?evento=0', 'fa fa-home'),
 (2, 'EMPLEADOS', 'index.php?evento=1', 'far fa-address-card'),
-(3, 'CLIENTES', 'index.php?evento=2', 'fa fa-motorcycle'),
+(3, 'CLIENTES', 'index.php?evento=2', 'fa fa-users'),
 (4, 'VEHICULOS', 'index.php?evento=3', 'fa fa-motorcycle'),
 (5, 'AJUSTES', 'index.php?evento=4', 'fa fa-tools'),
 (6, 'SALIR', 'salir.php', 'far fa-arrow-alt-circle-right');
@@ -79,7 +79,7 @@ CREATE TABLE `modulos_permisos` (
   `idmodulo_permiso` int(2) NOT NULL,
   `idmodulo2` int(2) NOT NULL,
   `idpermiso2` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,7 @@ CREATE TABLE `modulos_permisos` (
 CREATE TABLE `permisos` (
   `idpermiso` int(2) NOT NULL,
   `permiso` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -102,7 +102,7 @@ CREATE TABLE `roles` (
   `idrol` int(2) NOT NULL,
   `rol` varchar(45) NOT NULL,
   `icono` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `roles`
@@ -123,7 +123,7 @@ CREATE TABLE `roles_modulos` (
   `idrole_modulo` int(2) NOT NULL,
   `idrol2` int(2) NOT NULL,
   `idmodulo1` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `roles_modulos`
@@ -154,7 +154,7 @@ CREATE TABLE `usuarios` (
   `celular` bigint(200) NOT NULL,
   `password` varchar(255) NOT NULL,
   `idrol1` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -162,8 +162,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`cedula`, `nombre`, `apellido`, `direccion`, `celular`, `password`, `idrol1`) VALUES
 (1005646517, 'Diego', 'Barrios', 'Albania', 3154355938, '$2y$10$YOll6e33ue8IE3URJ5mGBuII6SAbDDBKDAecY.P6yjY7jvdx2lm8K', 2),
-(1005649691, 'Juan', 'Fernandez', 'sincelejo/plaza-majagual', 3017256135, '$2y$10$YOll6e33ue8IE3URJ5mGBuII6SAbDDBKDAecY.P6yjY7jvdx2lm8K', 1),
-(1005661372, 'Moises', 'mendez', 'carr55 25b 76', 3004320257, '$2y$10$YOll6e33ue8IE3URJ5mGBuII6SAbDDBKDAecY.P6yjY7jvdx2lm8K', 3);
+(1005649691, 'Juan', 'Fernandez', 'sincelejo/plaza-majagual', 3017256135, '$2y$10$vcSa15g14CIKUeUH9i67yuo/gu9uxee87GWGa6eStuyMcDcCM9D.y', 1),
+(1005661372, 'Moises', 'mendez', 'carr55 25b 76', 3004320257, '$2y$10$ltCC1DU6oO9TOkBv4c91ku/9X2Fq7SilvdzuV.BlLT/lsrB0Au5.u', 3);
 
 -- --------------------------------------------------------
 
@@ -175,7 +175,7 @@ CREATE TABLE `usuarios_permisos` (
   `idusuario_permiso` int(2) NOT NULL,
   `cedula1` bigint(10) NOT NULL,
   `idpermiso1` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -188,7 +188,7 @@ CREATE TABLE `vehiculo` (
   `color` varchar(45) NOT NULL,
   `marca` varchar(45) NOT NULL,
   `cedula2` bigint(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `vehiculo`
@@ -211,7 +211,7 @@ CREATE TABLE `vehiculos_estados` (
   `diagnostico_salida` varchar(150) NOT NULL,
   `placa1` varchar(6) NOT NULL,
   `idestado1` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `vehiculos_estados`
