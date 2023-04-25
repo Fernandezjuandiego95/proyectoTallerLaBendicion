@@ -30,6 +30,10 @@
   <link rel="stylesheet" href="../assets/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="../assets/plugins/summernote/summernote-bs4.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="../assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="../assets/plugins/toastr/toastr.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed" style="background:#F7F8FC;">
@@ -151,6 +155,6 @@
 <script src="../assets/plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- Toastr -->
 <script src="../assets/plugins/toastr/toastr.min.js"></script>
-
+<script src="../assets/js/alert.js"></script>
 </body>
 </html>

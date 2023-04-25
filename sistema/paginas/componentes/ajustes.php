@@ -1,6 +1,4 @@
 <?php
-//Inicializar la variable $connection (se asume que esto se hace en algún otro archivo incluido)
-$contrasena_actualizada = null;
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
   
@@ -19,11 +17,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       $actualizar->bindParam(":cedula", $cedula); 
       $actualizar->execute();
      
-      //Establecer la variable $contrasena_actualizada a true para mostrar el Toast de éxito
-     $contrasena_actualizada = true;
+      // mostrar el Toast de Contraseña Guardada Correctamente
+     //el cual el codigo se encuentra en el archivo alert.js
   } else{
-     //Establecer la variable $contrasena_actualizada a false para mostrar el Toast de error
-      $contrasena_actualizada = false;
+     //mostrar el Toast de error Las Contraseñas No Coinciden
+     //el cual el codigo se encuentra en el archivo alert.js
     }
 }
 
@@ -76,45 +74,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="modal-footer justify-content-right" style="border-top:1px solid #D1D5DB;">
               <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn-cambiar" name="cambiar">Cambiar</button>
+              <button type="button" class="btn-cambiar" onclick="mostrarToast()">Cambiar</button>
             </div>
     </div>
   </div>
 </div>
 <!--------------Fin ventana modal-------------->
 
-<script>
-  $(function() {
-    <?php if(isset($contrasena_actualizada) && $contrasena_actualizada): ?>
-      var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000
-      });
-
-      Toast.fire({
-        icon: 'success',
-        title: 'Contraseña actualizada'
-      });
-    <?php elseif(isset($contrasena_actualizada) && !$contrasena_actualizada): ?>
-      var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000
-      });
-
-      Toast.fire({
-        icon: 'error',
-        title: 'Las contraseñas no coinciden'
-      });
-    <?php endif; ?>
-  });
-
-  // Confirmar el cambio de contraseña
-  $('#form-cambiar-contrasena').submit(function(e) {
-    e.preventDefault();
-    $('#modal-cambiar-contrasena').modal('show');
-  });
-</script>
