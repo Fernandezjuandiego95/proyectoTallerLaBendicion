@@ -23,9 +23,9 @@
   color: #FFFFFF;
   -webkit-text-shadow: 0 1px 0 #ffffff;
   text-shadow: 0 1px 0 #ffffff;
-  opacity: 0.8;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  filter: alpha(opacity=80);
+  opacity: none;
+  -ms-filter: none;
+  filter: none;
   line-height: 1;
 }
 .toast-close-button:hover,
@@ -33,9 +33,9 @@
   color: #000000;
   text-decoration: none;
   cursor: pointer;
-  opacity: 0.4;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
-  filter: alpha(opacity=40);
+  opacity: none;
+  -ms-filter: none;
+  filter: none;
 }
 .rtl .toast-close-button {
   left: -0.3em;
@@ -115,9 +115,9 @@ button.toast-close-button {
   -webkit-box-shadow: 0 0 12px #999999;
   box-shadow: 0 0 12px #999999;
   color: #FFFFFF;
-  opacity: 0.8;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  filter: alpha(opacity=80);
+  opacity: none;
+  -ms-filter: none;
+  filter: none;
 }
 #toast-container > div.rtl {
   direction: rtl;
@@ -128,9 +128,9 @@ button.toast-close-button {
   -moz-box-shadow: 0 0 12px #000000;
   -webkit-box-shadow: 0 0 12px #000000;
   box-shadow: 0 0 12px #000000;
-  opacity: 1;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  filter: alpha(opacity=100);
+  opacity: none;
+  -ms-filter: none;
+  filter: none;
   cursor: pointer;
 }
 #toast-container > .toast-info {
@@ -159,12 +159,15 @@ button.toast-close-button {
 }
 .toast {
   background-color: #030303;
+  
 }
 .toast-success {
-  background-color: #51A351;
+  background-color: #4aa04a;
+  opacity: 1;
 }
 .toast-error {
   background-color: #BD362F;
+  opacity: 1;
 }
 .toast-info {
   background-color: #2F96B4;
@@ -178,9 +181,9 @@ button.toast-close-button {
   bottom: 0;
   height: 4px;
   background-color: #000000;
-  opacity: 0.4;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
-  filter: alpha(opacity=40);
+  opacity: none;
+  -ms-filter: none;
+  filter: none;
 }
 /*Responsive Design*/
 @media all and (max-width: 240px) {
