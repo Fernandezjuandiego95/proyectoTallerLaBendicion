@@ -18,9 +18,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       $actualizar->execute();
      
       // mostrar el Toast de Contraseña Guardada Correctamente
-     //el cual el codigo se encuentra en el archivo alert.js
+      //el cual el codigo se encuentra en el archivo alert.js
   } else{
-     //mostrar el Toast de error Las Contraseñas No Coinciden
+      //mostrar el Toast de error Las Contraseñas No Coinciden
      //el cual el codigo se encuentra en el archivo alert.js
     }
 }
@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   <br>
   <input class="input-ajustes" type="password" id="verificacion" name="verificacion"  placeholder="Confirme su nueva contraseña" required/>
   <br>
-  <button type="button" class="btn-ajustes" data-toggle="modal" data-target="#modal-cambiar-contrasena">Cambiar</button>
+  <input type="submit" class="btn-ajustes"  value="Cambiar"/>
 </form>
 <!----------------Fin Formulario----------------->
 
@@ -74,10 +74,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="modal-footer justify-content-right" style="border-top:1px solid #D1D5DB;">
               <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn-cambiar" onclick="mostrarToast()">Cambiar</button>
+              <button type="submit" class="btn-cambiar" name="cambiar" onclick="mostrarToast()">Cambiar</button>
             </div>
     </div>
   </div>
 </div>
 <!--------------Fin ventana modal-------------->
+
 

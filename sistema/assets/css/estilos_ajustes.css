@@ -157,23 +157,8 @@
     border: 1px solid #d7cf33c4;
 }
 
+.toast-top-center {
+  margin-top: 8%;
+}
 
-.toast_style {
-    position: fixed;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 8px;
-    box-shadow: 2px 8px 5px rgba(12, 227, 8, 0.5);
-    background-color: #fff;
-    color: #000;
-    padding: 20px;
-    z-index: 99999;
-    border: 2px solid #71F931;
-    font-size: 20px;
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
-  }
-  
   
