@@ -13,7 +13,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars fa-2x"></i></a>
       </li>
       <li class="nav_text">
-        <span>INICIO</span>
+        <span><?php foreach($resultado_modulo as $dato){ echo $dato;}?></span>
       </li>
     </ul>
 
