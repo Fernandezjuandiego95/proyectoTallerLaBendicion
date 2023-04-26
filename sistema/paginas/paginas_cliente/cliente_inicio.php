@@ -32,7 +32,7 @@
    	// Mostrar los resultados de la búsqueda
      if(count($resultado_busqueda) > 0) {
       $contador = 0; 
-      echo '<div >
+      echo '<div>
             <div class="card" style=" width: 67%;  margin:auto;">        
               <div class="card-body">
                 <table id="tablaCliente" class="table table-bordered table-striped align-middle">

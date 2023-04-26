@@ -55,23 +55,45 @@
                       include "paginas_admin/admin_inicio.php";
                   break;
               }
-          } else if($rol == 3){
+          } else if($rol== 2){
             $evento = $_GET ['evento'] ;
+                    switch ($evento) {
+                        case 0:
+                        include "paginas_cliente/cliente_inicio.php";
+                        break;
+                        case 2:
+                            include "paginas_empleado/registrar_vehiculos.php";
+                            break;
 
-              switch ($evento) {
-                case 0:
-                  include "paginas_cliente/cliente_inicio.php";
-                  break;
-                  case 4:
-                    include "componentes/ajustes.php";
-                    break;
-                
-                default:
-                      include "paginas_cliente/cliente_inicio.php";
-                  break;
-              }
-          }
- 
+                        case 3:
+                            include "paginas_empleado/vehiculo.php";
+                            break;
+
+                        case 4:
+                            include "componentes/ajustes.php";
+                            break;
+                        
+                        default:
+                            include "paginas_cliente/cliente_inicio.php";
+                        break;
+                    }
+          
+                   } else if($rol == 3){
+                        $evento = $_GET ['evento'] ;
+
+                          switch ($evento) {
+                            case 0:
+                              include "paginas_cliente/cliente_inicio.php";
+                              break;
+                              case 4:
+                                include "componentes/ajustes.php";
+                                break;
+                            
+                            default:
+                                  include "paginas_cliente/cliente_inicio.php";
+                              break;
+                          }
+                      }
           ?>
           
             </div>
