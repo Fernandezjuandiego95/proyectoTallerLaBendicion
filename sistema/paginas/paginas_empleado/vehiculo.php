@@ -1,3 +1,18 @@
+<!------------------------Barra Buscador------------------------>
+<div class="barra__buscador">
+    <form action="" class="formulario buscador" method="post">
+        <fieldset class="field-container">
+        <input type="text" name="buscar" placeholder="Ingrese la placa del vehiculo" 
+         class="input__text" required>
+        <input type="submit" class="buscar_placa" name="buscar_placa" >
+        </fieldset>
+    </form>
+</div>
+<br/>
+<!----------------------Fin Barra Buscador---------------------->
+
+
+
 
 <?php
       //Realizar consulta para obtener los registros de las tablas vheiculos, estados_vehiculos y estados 
@@ -54,12 +69,12 @@
 								<td>'.$fila['estado'].'</td>
 								<td>
 									<a href="#">
-									<button type="button" class="btn btn-outline-primary">Editar</button>
+									<button type="button" class="btn-crud btn-editar"></button>
 									</a>
 								</td>
 								<td>
 									<a href="#">
-									<button type="button" class="btn btn-outline-danger">Eliminar</button>
+									<button type="button" class="btn-crud btn-eliminar"></button>
 								</a>
 								</td>
                 			</tr>';

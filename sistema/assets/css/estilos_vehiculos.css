@@ -1,0 +1,47 @@
+*, *:after, *:before {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    --color-pricpal:#FFCB51;
+}
+.btn-crud{
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    background-repeat:no-repeat;
+    margin: auto;
+    display: flex;
+    justify-content:center;
+    margin-top:20%;
+}
+
+.btn-editar{
+    background-image: url('./../img/boligrafo.png');
+}
+
+.btn-eliminar{
+    background-image: url('./../img/eliminar.png');
+}
+
+.btn-editar:hover, .btn-eliminar:hover{
+    -webkit-filter: drop-shadow(1px 1px 1px #666666);
+    filter: drop-shadow(1px 1px 1px #666666);
+}
+
+.btn-editar:active, .btn-eliminar:active{
+    background-size: 38px;
+}
+
+.buscador {
+    margin-left: 55%;
+    width: 40%;
+}
+
+.field-container {
+    justify-content: right;
+}
+

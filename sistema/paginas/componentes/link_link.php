@@ -1,6 +1,7 @@
   <link rel="stylesheet" href="../assets/css/estilos_panel_cliente.css">
   <link rel="stylesheet" href="../assets/css/estilos_panel.css">
   <link rel="stylesheet" href="../assets/css/estilos_ajustes.css">
+  <link rel="stylesheet" href="../assets/css/estilos_vehiculos.css">
 
   <!-- DataTables -->
   <link rel="stylesheet" href="../assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
