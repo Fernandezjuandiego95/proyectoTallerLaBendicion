@@ -86,7 +86,7 @@ form .input__text:focus {
   flex-direction:column;
   align-items: center;
   margin: auto;
-  margin-top: 10%;
+  margin-top: 7%;
 }
 
 .BusquedaNoencontrada{
@@ -113,8 +113,14 @@ form .input__text:focus {
     margin-left: 5%;
     margin-right: 5%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: left;
 }
 
+.modal-body .div-modal-body .div-modal-fila{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
