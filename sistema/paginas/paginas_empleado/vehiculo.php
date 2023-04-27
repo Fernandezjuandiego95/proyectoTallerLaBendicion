@@ -15,9 +15,7 @@
 
 
 <?php
-    header("Cache-Control: no-cache, must-revalidate"); 
-	header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); 
-	
+
 
 
       //Realizar consulta para obtener los registros de las tablas vheiculos, estados_vehiculos y estados 
@@ -39,6 +37,7 @@
     				<table id="tabla-vehiculo" class="table table-bordered table-striped">
             			<thead>
                				<tr>
+							    <th>ID</th>
 								<th>Placa</th>
 								<th>Color</th>
 								<th>Marca</th>
@@ -55,6 +54,7 @@
 			 		foreach($resultado as $fila){
 					$contadorVehiculo++;
                		echo    '<tr>
+					            <td>'.$fila['idvehicul_estado'].'</td>
 								<td>'.$fila['placa'].'</td>
 								<td>'.$fila['color'].'</td>
 								<td>'.$fila['marca'].'</td>

@@ -6,7 +6,6 @@
 
     if(isset($_POST['guardar'])){
 
-
         $placa = $_POST['placa'];
         $color = $_POST['color'];
         $marca = $_POST['marca'];
@@ -16,7 +15,7 @@
         $fecha_salida = $_POST['fecha_salida'];
         $diagnostico_salida  = $_POST['diagnostico_salida'];
         $idestado1 = $_POST['idestado1'];
-    
+        $idvehicul_estado = $_POST['idvehicul_estado'];
 
     
       try{
@@ -27,7 +26,7 @@
           
           $placa1= $placa;
 
-          $consulta_update2=$connection->prepare('UPDATE vehiculos_estados SET  fecha_ingreso = :fecha_ingreso, diagnostico_entrada = :diagnostico_entrada, fecha_salida = :fecha_salida, diagnostico_salida =:diagnostico_salida, placa1 =:placa1, idestado1 =:idestado1 WHERE  placa1 = :placa1;');
+          $consulta_update2=$connection->prepare('UPDATE vehiculos_estados SET  fecha_ingreso = :fecha_ingreso, diagnostico_entrada = :diagnostico_entrada, fecha_salida = :fecha_salida, diagnostico_salida =:diagnostico_salida, placa1 =:placa1, idestado1 =:idestado1 WHERE  idvehicul_estado = :idvehicul_estado;');
           $consulta_update2->execute(array(':fecha_ingreso' =>$fecha_ingreso, ':diagnostico_entrada' =>$diagnostico_entrada, ':fecha_salida' =>$fecha_salida, ':diagnostico_salida' =>$diagnostico_salida, ':placa1' =>$placa1, ':idestado1' =>$idestado1));
               
           // Confirmar la transacción
@@ -39,7 +38,7 @@
            $connection->rollback();
               
           // Mostrar un mensaje de error al usuario
-          echo "Error: " . $e->getMessage();
+          echo "Error: No se guardaron los datos" . $e->getMessage();
       }           
     }
 
@@ -67,6 +66,10 @@ echo	'<div class="modal fade" id="modal-lg-editar-'.$contadorVehiculo.'">
 
         echo    '<form id="vehiculo" action=" " method="post">
                 <ul>
+                <li>
+                    <label>ID:</label>
+                    <input type="number"  name="idvehicul_estado" value='.$fila['idvehicul_estado'].'>
+                  </li>
                   <li>
                     <label>Cedula:</label>
                     <input type="number"  name="cedula" value='.$fila['cedula2'].'>

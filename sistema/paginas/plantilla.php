@@ -1,8 +1,8 @@
 <?php
-    $home = $_GET ['home'] + 1;
+    $home_url = $_GET ['home'] + 1;
 
-    $consultar_modulo= $connection->prepare("SELECT modulo FROM modulos WHERE IDMODULO=:home");
-    $consultar_modulo->bindParam("home", $home, PDO::PARAM_STR);
+    $consultar_modulo= $connection->prepare("SELECT modulo FROM modulos WHERE IDMODULO=:home_url");
+    $consultar_modulo->bindParam("home_url", $home_url, PDO::PARAM_STR);
     $consultar_modulo->execute();
  
     $resultado_modulo = $consultar_modulo->fetch(PDO::FETCH_ASSOC);
