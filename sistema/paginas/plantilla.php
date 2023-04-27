@@ -1,8 +1,8 @@
 <?php
-    $evento = $_GET ['evento'] + 1;
+    $home = $_GET ['home'] + 1;
 
-    $consultar_modulo= $connection->prepare("SELECT modulo FROM modulos WHERE IDMODULO=:evento");
-    $consultar_modulo->bindParam("evento", $evento, PDO::PARAM_STR);
+    $consultar_modulo= $connection->prepare("SELECT modulo FROM modulos WHERE IDMODULO=:home");
+    $consultar_modulo->bindParam("home", $home, PDO::PARAM_STR);
     $consultar_modulo->execute();
  
     $resultado_modulo = $consultar_modulo->fetch(PDO::FETCH_ASSOC);
@@ -38,9 +38,9 @@
 
           <?php 
           if($rol == 1){
-            $evento = $_GET ['evento'] ;
+            $home = $_GET ['home'] ;
 
-              switch ($evento) {
+              switch ($home) {
                 case 0:
                   include "paginas_admin/admin_inicio.php";
                   break;
@@ -56,8 +56,9 @@
                   break;
               }
           } else if($rol== 2){
-            $evento = $_GET ['evento'] ;
-                    switch ($evento) {
+            $home = $_GET ['home'] ;
+            var_dump($home);
+                    switch ($home) {
                         case 0:
                         include "paginas_cliente/cliente_inicio.php";
                         break;
@@ -79,9 +80,9 @@
                     }
           
                    } else if($rol == 3){
-                        $evento = $_GET ['evento'] ;
+                        $home = $_GET ['home'] ;
 
-                          switch ($evento) {
+                          switch ($home) {
                             case 0:
                               include "paginas_cliente/cliente_inicio.php";
                               break;

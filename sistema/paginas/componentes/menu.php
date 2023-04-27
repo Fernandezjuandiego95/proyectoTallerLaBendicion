@@ -1,4 +1,4 @@
- <?php
+<?php
      //consulta para el menu dinamico  
     $query = $connection->prepare(
       "SELECT * 
@@ -36,7 +36,7 @@
                   }
                   ?>
               <li class="nav-item">
-                <a href="<?php echo $menu[$i]["url"]?>" class="nav-link">
+                 <a href="<?php echo $menu[$i]["url"]?>" class="nav-link">
                   <i class="nav-icon <?php echo $menu[$i]["icono"]?>" ></i>
                 
                   <p>
@@ -50,8 +50,5 @@
           <!--------------------------------------------------------------> 
         </ul>
       </nav>
-      <!-- /.sidebar-menu -->
-   
-    <!-- /.sidebar -->
   </aside>
 

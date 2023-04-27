@@ -24,7 +24,7 @@ if (isset($_POST['login'])) {
             $_SESSION['user_nombre'] = $result['nombre'];
             $_SESSION['user_apellido'] = $result['apellido'];
             echo '<script>alert("¡Bienvenido!")</script>';
-            header("location:paginas/index.php?evento=0");
+            header("location:paginas/index.php?home=0");
         } else {
             echo '<script>alert ("Contraseña incorrecta")</script>';
         }

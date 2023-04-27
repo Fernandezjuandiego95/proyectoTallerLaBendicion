@@ -15,6 +15,11 @@
 
 
 <?php
+    header("Cache-Control: no-cache, must-revalidate"); 
+	header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); 
+	
+
+
       //Realizar consulta para obtener los registros de las tablas vheiculos, estados_vehiculos y estados 
         $query=$connection->prepare("SELECT *
 		                             FROM vehiculo v  
@@ -69,7 +74,7 @@
 								<td>'.$fila['estado'].'</td>
 								<td>
 									<a href="#">
-									<button type="button" class="btn-crud btn-editar"></button>
+									<button type="button" class="btn-crud btn-editar" data-toggle="modal" data-target="#modal-lg-editar-'.$contadorVehiculo.'"></button>
 									</a>
 								</td>
 								<td>
@@ -146,7 +151,6 @@
     			</div>
 			</div>';
 		
+		include "actualizar_vehiculo.php";
 	}      
 ?>   
- 
-     
