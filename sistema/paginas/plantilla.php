@@ -1,4 +1,6 @@
 <?php
+    ob_start();
+
     $home_url = $_GET ['home'] + 1;
 
     $consultar_modulo= $connection->prepare("SELECT modulo FROM modulos WHERE IDMODULO=:home_url");
@@ -107,3 +109,6 @@
 
 </body>
 </html>
+<?php
+  ob_end_flush();
+?>

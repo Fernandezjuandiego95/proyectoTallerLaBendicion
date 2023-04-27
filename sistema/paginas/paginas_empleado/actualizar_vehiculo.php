@@ -6,10 +6,10 @@
 
     if(isset($_POST['guardar'])){
 
+
         $placa = $_POST['placa'];
         $color = $_POST['color'];
         $marca = $_POST['marca'];
-        $cedula = $_POST['cedula'];
         $fecha_ingreso = $_POST['fecha_ingreso'];
         $diagnostico_entrada = $_POST['diagnostico_entrada'];
         $fecha_salida = $_POST['fecha_salida'];
@@ -18,28 +18,34 @@
         $idvehicul_estado = $_POST['idvehicul_estado'];
 
     
-      try{
+      try {      
           $connection->beginTransaction();
 
-          $consulta_update1=$connection->prepare('UPDATE vehiculo SET  placa= :placa, color= :color, marca= :marca, cedula2=:cedula WHERE  placa= :placa;');
-          $consulta_update1->execute(array(':placa' =>$placa,':color' =>$color,':marca' =>$marca,':cedula' =>$cedula));
+          $consulta_update1=$connection->prepare('UPDATE vehiculo SET  placa= :placa, color= :color, marca= :marca WHERE  placa= :placa;');
+          $consulta_update1->execute(array(':placa' =>$placa,':color' =>$color,':marca' =>$marca));
           
-          $placa1= $placa;
 
-          $consulta_update2=$connection->prepare('UPDATE vehiculos_estados SET  fecha_ingreso = :fecha_ingreso, diagnostico_entrada = :diagnostico_entrada, fecha_salida = :fecha_salida, diagnostico_salida =:diagnostico_salida, placa1 =:placa1, idestado1 =:idestado1 WHERE  idvehicul_estado = :idvehicul_estado;');
-          $consulta_update2->execute(array(':fecha_ingreso' =>$fecha_ingreso, ':diagnostico_entrada' =>$diagnostico_entrada, ':fecha_salida' =>$fecha_salida, ':diagnostico_salida' =>$diagnostico_salida, ':placa1' =>$placa1, ':idestado1' =>$idestado1));
+          $consulta_update2=$connection->prepare('UPDATE vehiculos_estados SET  fecha_ingreso = :fecha_ingreso, diagnostico_entrada = :diagnostico_entrada, fecha_salida = :fecha_salida, diagnostico_salida =:diagnostico_salida, idestado1 =:idestado1 WHERE  idvehicul_estado = :idvehicul_estado;');
+          $consulta_update2->execute(array(
+          ':fecha_ingreso' =>$fecha_ingreso,
+          ':diagnostico_entrada' =>$diagnostico_entrada, 
+          ':fecha_salida' =>$fecha_salida, 
+          ':diagnostico_salida' =>$diagnostico_salida,
+            ':idestado1' =>$idestado1,
+            ':idvehicul_estado' =>$idvehicul_estado
+          ));
               
           // Confirmar la transacción
           $connection->commit();
-      
+          header('Location: index.php?home=3');
           exit();
-      } catch(PDOException $e) {
+        } catch (PDOException $e) {
           // Deshacer todas las operaciones realizadas durante la transacción
            $connection->rollback();
-              
-          // Mostrar un mensaje de error al usuario
-          echo "Error: No se guardaron los datos" . $e->getMessage();
-      }           
+         // Mostrar un mensaje de error al usuario
+         echo "Error: " . $e->getMessage();
+        }
+                 
     }
 
 
@@ -69,10 +75,6 @@ echo	'<div class="modal fade" id="modal-lg-editar-'.$contadorVehiculo.'">
                 <li>
                     <label>ID:</label>
                     <input type="number"  name="idvehicul_estado" value='.$fila['idvehicul_estado'].'>
-                  </li>
-                  <li>
-                    <label>Cedula:</label>
-                    <input type="number"  name="cedula" value='.$fila['cedula2'].'>
                   </li>
                   <li>
                     <label>placa:</label>
@@ -116,9 +118,9 @@ echo	'<div class="modal fade" id="modal-lg-editar-'.$contadorVehiculo.'">
                   
                   echo '</select>
               
-
+                   <a href="index.php?home=3">
                   <input id="btnActualizar" class="btn-cambiar" type="submit" name="guardar" value="Guardar">
-                
+                   </a>
                 </ul>
 
               </form>
@@ -136,6 +138,5 @@ echo	'<div class="modal fade" id="modal-lg-editar-'.$contadorVehiculo.'">
 </div>';
         }					
 ?>
-
 
 

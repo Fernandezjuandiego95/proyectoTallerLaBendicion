@@ -1,3 +1,4 @@
+
 <!------------------------Barra Buscador------------------------>
 <div class="barra__buscador">
     <form action="" class="formulario buscador" method="post">
@@ -15,9 +16,6 @@
 
 
 <?php
-
-
-
       //Realizar consulta para obtener los registros de las tablas vheiculos, estados_vehiculos y estados 
         $query=$connection->prepare("SELECT *
 		                             FROM vehiculo v  
@@ -73,9 +71,9 @@
 								.'</td>
 								<td>'.$fila['estado'].'</td>
 								<td>
-									<a href="#">
-									<button type="button" class="btn-crud btn-editar" data-toggle="modal" data-target="#modal-lg-editar-'.$contadorVehiculo.'"></button>
-									</a>
+									
+									<button type="submit" class="btn-crud btn-editar" data-toggle="modal" data-target="#modal-lg-editar-'.$contadorVehiculo.'"></button>
+									
 								</td>
 								<td>
 									<a href="#">
