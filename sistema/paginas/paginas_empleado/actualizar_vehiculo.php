@@ -119,7 +119,7 @@ echo	'<div class="modal fade" id="modal-lg-editar-'.$contadorVehiculo.'">
                   echo '</select>
               
                    <a href="index.php?home=3">
-                  <input id="btnActualizar" class="btn-cambiar" type="submit" name="guardar" value="Guardar">
+                  <input  class="btn-cambiar" type="submit" name="guardar" value="Guardar">
                    </a>
                 </ul>
 
