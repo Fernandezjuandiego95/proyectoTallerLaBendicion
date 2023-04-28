@@ -59,7 +59,7 @@
               }
           } else if($rol== 2){
             $home = $_GET ['home'] ;
-            var_dump($home);
+          
                     switch ($home) {
                         case 0:
                         include "paginas_cliente/cliente_inicio.php";

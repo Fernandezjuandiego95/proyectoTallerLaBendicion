@@ -36,6 +36,14 @@
     background-size: 38px;
 }
 
+.disable:hover{
+    -webkit-filter: none;
+    filter: none;
+}
+.disable:active{
+    background-size: 45px;
+}
+
 .buscador {
     margin-left: 55%;
     width: 40%;

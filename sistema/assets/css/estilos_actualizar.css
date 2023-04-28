@@ -1,0 +1,164 @@
+*, *:after, *:before {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    --color-pricpal:#FFCB51;
+}
+
+.encabezado{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.titulo-act{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 49px;
+    letter-spacing: 0.04em;
+    color: #0010A2;
+}
+
+.div-titulo{
+    width: 95%;
+    text-align: center;
+}
+
+.caja-modal{
+    background: #FFFDFD;
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: #BBB5B5;
+    box-shadow: 6px 10px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    
+}
+
+.btn-actualizar{
+    width: 110px;
+    height: 45px;
+    background: #539ee0;
+    border: 1px inset #57569d;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 33px;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+}
+.btn-actualizar:hover{
+    background: #107DDB;
+    border: 2px inset #060546;
+    cursor: pointer;
+}
+.btn-actualizar:active{
+    width: 107px;
+    height: 43px;
+    line-height: 30px;
+    letter-spacing: 0.03em;
+}
+
+.modal-form{
+    height: 450px;
+    margin-left: 3%;
+    margin-right: 3%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.div-padre-form{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.div-hijo1, .div-hijo2, .div-hijo3{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 5px;
+    width: 25%;
+    padding-left: 2%;
+}
+
+.div-hijo3{
+    width: 40%;
+}
+#idvehiculo{
+    position: absolute;
+    width: 30px;
+    margin-left: -4%;
+    visibility: hidden;
+}
+
+.div-padre-form .div-hijo1 input, .div-padre-form .div-hijo2 input, .div-padre-form .div-hijo3 textarea, #slt-estados{
+    box-sizing: border-box;
+    width: 90%;
+    height: 38px;  
+    border: 1px solid #B5B5B5;
+    filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.25));
+    border-radius: 5px;
+    padding-left: 20px;
+    outline: medium;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+}
+.div-padre-form .div-hijo1 input:focus, .div-padre-form .div-hijo2 input:focus, .div-padre-form .div-hijo3 textarea:focus, #slt-estados:focus{
+    border: 1px solid #FB7C07;
+}
+
+.div-padre-form .div-hijo1 label, .div-padre-form .div-hijo2 label, .div-padre-form .div-hijo3 label{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: 0.04em;
+    margin-top: 22px;
+}
+
+#lb-placa, #dg-entrada, #f-ingreso{
+    margin-top: 0px;
+}
+
+.div-padre-form .div-hijo3 textarea{
+    width: 95%;
+    height: 120px;
+}
+
+.div-padre-form .div-hijo1 label, .div-padre-form .div-hijo2 label{
+    margin-top: 50px;
+}
+
+.btn-app-edit {
+    border-radius: 3px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    color: #6c757d;
+    font-size: 10px;
+    height: 40px;
+    margin: 0 0 10px 10px;
+    min-width: 65px;
+    padding: 10px 7px;
+    position: relative;
+    text-align: center;
+}
+

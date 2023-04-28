@@ -108,6 +108,7 @@ form .input__text:focus {
     margin-left: 2%;
     color: rgb(52, 52, 52);
 }
+
 .modal-body .div-modal-body{
     margin-top: 10px;
     margin-left: 5%;
@@ -123,4 +124,8 @@ form .input__text:focus {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: left;
+}
+
+.modal-body .div-modal-body .p-diag{
+    margin-top: -30px;
 }
