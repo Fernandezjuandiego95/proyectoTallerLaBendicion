@@ -162,3 +162,35 @@
     text-align: center;
 }
 
+.p-posicion{
+    position: absolute;
+    z-index: 99999;
+    margin-left: 25%;
+    margin-top: 14rem;
+}
+
+
+.btn-nuevo-vehiculo{
+    width: 200px;
+    height: 44px;
+    background: #F5BF46;
+    border-radius: 4px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #4F4B4B;
+    border:none;
+    margin-right: 2rem;
+}
+
+.btn-nuevo-vehiculo:hover{
+    border: 2px outset #d59711;
+    font-weight: 600;
+}
+
+.btn-nuevo-vehiculo:active{
+    width: 190px;
+    height: 42px;
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-04-2023 a las 00:03:37
+-- Tiempo de generación: 28-04-2023 a las 23:45:42
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -62,11 +62,11 @@ CREATE TABLE `modulos` (
 --
 
 INSERT INTO `modulos` (`idmodulo`, `modulo`, `url`, `icono`) VALUES
-(1, 'INICIO', 'index.php?evento=0', 'fa fa-home'),
-(2, 'EMPLEADOS', 'index.php?evento=1', 'far fa-address-card'),
-(3, 'CLIENTES', 'index.php?evento=2', 'fa fa-users'),
-(4, 'VEHICULOS', 'index.php?evento=3', 'fa fa-motorcycle'),
-(5, 'AJUSTES', 'index.php?evento=4', 'fa fa-tools'),
+(1, 'INICIO', 'index.php?home=0', 'fa fa-home'),
+(2, 'EMPLEADOS', 'index.php?home=1', 'far fa-address-card'),
+(3, 'CLIENTES', 'index.php?home=2', 'fa fa-users'),
+(4, 'VEHICULOS', 'index.php?home=3', 'fa fa-motorcycle'),
+(5, 'AJUSTES', 'index.php?home=4', 'fa fa-tools'),
 (6, 'SALIR', 'salir.php', 'far fa-arrow-alt-circle-right');
 
 -- --------------------------------------------------------
@@ -138,7 +138,11 @@ INSERT INTO `roles_modulos` (`idrole_modulo`, `idrol2`, `idmodulo1`) VALUES
 (6, 1, 6),
 (7, 3, 1),
 (8, 3, 5),
-(9, 3, 6);
+(9, 3, 6),
+(10, 2, 1),
+(11, 2, 4),
+(12, 2, 5),
+(13, 2, 6);
 
 -- --------------------------------------------------------
 
@@ -162,8 +166,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`cedula`, `nombre`, `apellido`, `direccion`, `celular`, `password`, `idrol1`) VALUES
 (1005646517, 'Diego', 'Barrios', 'Albania', 3154355938, '$2y$10$YOll6e33ue8IE3URJ5mGBuII6SAbDDBKDAecY.P6yjY7jvdx2lm8K', 2),
-(1005649691, 'Juan', 'Fernandez', 'sincelejo/plaza-majagual', 3017256135, '$2y$10$vcSa15g14CIKUeUH9i67yuo/gu9uxee87GWGa6eStuyMcDcCM9D.y', 1),
-(1005661372, 'Moises', 'mendez', 'carr55 25b 76', 3004320257, '$2y$10$ltCC1DU6oO9TOkBv4c91ku/9X2Fq7SilvdzuV.BlLT/lsrB0Au5.u', 3);
+(1005649691, 'Juan', 'Fernandez', 'sincelejo/plaza-majagual', 3017256135, '$2y$10$VmUdBKx5aAzNbrAIp6j8XuEPUKmGS4IFcJrX0uMRSCaDObHzQLlPm', 1),
+(1005661372, 'Moises', 'mendez', 'carr55 25b 76', 3004320257, '$2y$10$tvSErGnUynDr7jZ83bsjDeNMfoMN5mSIU/Z4NZC6.0gCmWj7PeoaS', 3);
 
 -- --------------------------------------------------------
 
@@ -195,7 +199,8 @@ CREATE TABLE `vehiculo` (
 --
 
 INSERT INTO `vehiculo` (`placa`, `color`, `marca`, `cedula2`) VALUES
-('dr1-5', 'rojo', 'boxer', 1005646517);
+('dr1-6', 'azul', 'suzuki', 1005646517),
+('xyz-56', 'cafe', 'akate', 1005649691);
 
 -- --------------------------------------------------------
 
@@ -218,7 +223,9 @@ CREATE TABLE `vehiculos_estados` (
 --
 
 INSERT INTO `vehiculos_estados` (`idvehicul_estado`, `fecha_ingreso`, `diagnostico_entrada`, `fecha_salida`, `diagnostico_salida`, `placa1`, `idestado1`) VALUES
-(1, '2023-04-18', 'Sonido(tik-tak) al inetrior del motor', '2023-04-20', 'Ajuste de las valvulas del motor', 'dr1-5', 6);
+(1, '2023-04-01', 'Problemas al arrancar.\r\n\r\nFuga o perdida de aceite.', '2023-04-05', 'Revisión de la parte eléctrica.\r\n\r\ncambio de empaques para controlar la fuga de aceite.', 'dr1-6', 6),
+(2, '2023-04-22', 'Problemas', '2023-04-30', 'Revisión', 'dr1-6', 5),
+(3, '2023-04-25', 'la motocicleta eta botando humo azul en grandes cantidades y el motor se esta recalentando.\r\n\r\n', '2023-04-30', 'cambio de anillos de la moto, limpieza del motor', 'xyz-56', 3);
 
 --
 -- Índices para tablas volcadas
@@ -326,7 +333,7 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `roles_modulos`
 --
 ALTER TABLE `roles_modulos`
-  MODIFY `idrole_modulo` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idrole_modulo` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_permisos`
@@ -338,7 +345,7 @@ ALTER TABLE `usuarios_permisos`
 -- AUTO_INCREMENT de la tabla `vehiculos_estados`
 --
 ALTER TABLE `vehiculos_estados`
-  MODIFY `idvehicul_estado` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idvehicul_estado` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

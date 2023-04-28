@@ -1,16 +1,38 @@
 <?php
-	//Realizar consulta para obtener los registros de las
-	//tablas vheiculos, estados_vehiculos y estados 
-	$query=$connection->prepare("SELECT *
-									FROM vehiculo v  
-									inner join vehiculos_estados vs 
-									on(v.placa = vs.placa1 ) 
-									inner join estados e 
-									on (vs.idestado1 = e.idestado)
-									LIMIT 7");
-    $query->execute();
-    $resultado=$query->fetchAll();	 
+    //Verificar si se ha enviado una solicitud de búsqueda
+    if(isset($_POST['buscar_placa']) && !empty($_POST['buscar'])){
+        //Obtener el valor ingresado en el campo de búsqueda
+        $placa_buscar = $_POST['buscar'];
+        //Construir la consulta SQL para obtener los registros que coincidan con la placa ingresada
+        $query=$connection->prepare("SELECT *
+                                        FROM vehiculo v  
+                                        inner join vehiculos_estados vs 
+                                        on(v.placa = vs.placa1 ) 
+                                        inner join estados e 
+                                        on (vs.idestado1 = e.idestado)
+                                        WHERE v.placa = :placa_buscar
+                                        LIMIT 7");
+        $query->bindParam(':placa_buscar', $placa_buscar);
+        $query->execute();
+        $resultado=$query->fetchAll();
+		if($resultado == null){
+            echo '<p class="BusquedaNoencontrada p-posicion">No se encontraron resultados.</p>';
+		}
+    }else{
+        //Si no se ha enviado una solicitud de búsqueda, obtener todos los registros
+        $query=$connection->prepare("SELECT *
+                                        FROM vehiculo v  
+                                        inner join vehiculos_estados vs 
+                                        on(v.placa = vs.placa1 ) 
+                                        inner join estados e 
+                                        on (vs.idestado1 = e.idestado)
+                                        LIMIT 7");
+        $query->execute();
+        $resultado=$query->fetchAll();
+    }
 ?>
+
+
 
 <!------------------------Barra Buscador------------------------>
 <div class="barra__buscador">
@@ -21,12 +43,13 @@
         <input type="submit" class="buscar_placa" name="buscar_placa" >
         </fieldset>
     </form>
+	<button type="button" class="btn-nuevo-vehiculo">NUEVO VEHICULO</button>
 </div>
 <br/>
 <!----------------------Fin Barra Buscador---------------------->
 
 
-
+      
 <!--------Tabla para mostrar los resultados de la consulta SQL------>
 <div class="card">
     <div class="card-body">
