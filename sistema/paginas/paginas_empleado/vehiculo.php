@@ -1,4 +1,8 @@
 <?php
+      $query_estados = $connection->prepare("SELECT * FROM estados");
+	  $query_estados->execute();
+	  $Estados = $query_estados->fetchAll(PDO::FETCH_ASSOC);
+
     //Verificar si se ha enviado una solicitud de búsqueda
     if(isset($_POST['buscar_placa']) && !empty($_POST['buscar'])){
         //Obtener el valor ingresado en el campo de búsqueda
@@ -11,7 +15,7 @@
                                         inner join estados e 
                                         on (vs.idestado1 = e.idestado)
                                         WHERE v.placa = :placa_buscar
-                                        LIMIT 7");
+                                        ORDER BY idvehicul_estado DESC");
         $query->bindParam(':placa_buscar', $placa_buscar);
         $query->execute();
         $resultado=$query->fetchAll();
@@ -26,7 +30,8 @@
                                         on(v.placa = vs.placa1 ) 
                                         inner join estados e 
                                         on (vs.idestado1 = e.idestado)
-                                        LIMIT 7");
+										ORDER BY idvehicul_estado DESC
+										LIMIT 5");
         $query->execute();
         $resultado=$query->fetchAll();
     }
@@ -43,7 +48,8 @@
         <input type="submit" class="buscar_placa" name="buscar_placa" >
         </fieldset>
     </form>
-	<button type="button" class="btn-nuevo-vehiculo">NUEVO VEHICULO</button>
+	<button type="button" class="btn-nuevo-vehiculo btn-nuevo-reingreso" data-toggle="modal" data-target="#modal-lg-reingreso">NUEVO REINGRESO</button>
+	<button type="button" class="btn-nuevo-vehiculo" data-toggle="modal" data-target="#modal-lg-registrar">NUEVO VEHICULO</button>
 </div>
 <br/>
 <!----------------------Fin Barra Buscador---------------------->
@@ -185,5 +191,7 @@
 </div>
 <!-------------Fin Modal diagnostico salida-------------->  
 <?php endforeach;
+ include "crud/registrar_vehiculo_nuevo.php";
+ include "crud/registrar_vehiculo_reingreso.php";
  include "crud/actualizar_vehiculo.php";
 ?>	  

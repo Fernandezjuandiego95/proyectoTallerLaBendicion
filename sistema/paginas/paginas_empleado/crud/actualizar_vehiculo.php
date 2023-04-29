@@ -1,9 +1,5 @@
 <?php
-    $query_estados = $connection->prepare("SELECT * FROM estados");
-    $query_estados->execute();
-    $Estados = $query_estados->fetchAll(PDO::FETCH_ASSOC);
-	     
-
+   
     if(isset($_POST['actualizar'])){
 
         $placa = $_POST['placa'];
@@ -42,11 +38,11 @@
           // Deshacer todas las operaciones realizadas durante la transacción
            $connection->rollback();
          // Mostrar un mensaje de error al usuario
-         echo "Error: " . $e->getMessage();
+         echo "Error: No se actualizaron  los datos ❌";
         }
                  
     }
-   
+
     $contadorVehiculo=0;
     foreach($resultado as $fila):
       $contadorVehiculo++;

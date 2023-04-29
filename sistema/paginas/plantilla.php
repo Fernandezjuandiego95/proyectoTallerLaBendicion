@@ -15,7 +15,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> <?php foreach($resultado_modulo as $dato){ echo $dato;}?></title>
+  <title> 
+    <?php if($resultado_modulo != null){
+           foreach($resultado_modulo as $dato){ 
+           echo $dato;
+          }
+    }else{
+          echo "Error";
+        }?>
+ </title>
 
   <?php include_once "componentes/link_link.php";?>
 
@@ -54,7 +62,7 @@
                     break;
                 
                 default:
-                      include "paginas_admin/admin_inicio.php";
+                      include "componentes/pagina404.php";
                   break;
               }
           } else if($rol== 2){
@@ -62,22 +70,16 @@
           
                     switch ($home) {
                         case 0:
-                        include "paginas_cliente/cliente_inicio.php";
+                          include "paginas_empleado/empleado_inicio.php";
                         break;
-                        case 2:
-                            include "paginas_empleado/registrar_vehiculos.php";
-                            break;
-
                         case 3:
                             include "paginas_empleado/vehiculo.php";
                             break;
-
                         case 4:
                             include "componentes/ajustes.php";
                             break;
-                        
                         default:
-                            include "paginas_cliente/cliente_inicio.php";
+                            include "componentes/pagina404.php";
                         break;
                     }
           
@@ -93,7 +95,7 @@
                                 break;
                             
                             default:
-                                  include "paginas_cliente/cliente_inicio.php";
+                                  include "componentes/pagina404.php";
                               break;
                           }
                       }

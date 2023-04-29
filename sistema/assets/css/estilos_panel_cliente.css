@@ -130,3 +130,8 @@ form .input__text:focus {
 .modal-body .div-modal-body .p-diag{
     margin-top: -30px;
 }
+
+.error404{
+  width: 90%;
+  margin-left: 5%;
+}

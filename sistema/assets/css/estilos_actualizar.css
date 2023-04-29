@@ -35,8 +35,7 @@
     border-style: solid;
     border-color: #BBB5B5;
     box-shadow: 6px 10px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-    
+    border-radius: 30px; 
 }
 
 .btn-actualizar{
@@ -122,7 +121,7 @@
     line-height: 20px;
 }
 .div-padre-form .div-hijo1 input:focus, .div-padre-form .div-hijo2 input:focus, .div-padre-form .div-hijo3 textarea:focus, #slt-estados:focus{
-    border: 1px solid #FB7C07;
+    border: 1px solid #00a968;
 }
 
 .div-padre-form .div-hijo1 label, .div-padre-form .div-hijo2 label, .div-padre-form .div-hijo3 label{
@@ -164,14 +163,13 @@
 
 .p-posicion{
     position: absolute;
-    z-index: 99999;
     margin-left: 25%;
     margin-top: 14rem;
 }
 
 
 .btn-nuevo-vehiculo{
-    width: 200px;
+    width: 170px;
     height: 44px;
     background: #F5BF46;
     border-radius: 4px;
@@ -193,4 +191,65 @@
 .btn-nuevo-vehiculo:active{
     width: 190px;
     height: 42px;
+}
+
+.btn-nuevo-reingreso{
+    background: #29ceb5;
+}
+.btn-nuevo-reingreso:hover{
+    border: 2px outset #04847e;
+}
+
+.color-verde{
+    color: #037E0F;
+}
+
+.btn-registrar{
+    background: #44e066;
+    border: 1px solid #197E08;
+}
+
+.btn-registrar:hover{
+    background: #08D335;
+    border: 2px inset #197E08;
+}
+
+#cedula{
+    margin-top:0px;
+}
+
+.div-padre-form .div-hijo3 .textarea-dg-entrada{
+    height: 150px;
+}
+
+.div-hj1, .div-hj2, .div-hj3{
+    padding-left: 0%;
+    width: 30%;
+}
+.div-hj3{
+    padding-left: 0%;
+    width: 38%;
+}
+
+.div-padre-form .div-hijo1 .lb-margenTop, .div-padre-form .div-hijo2 .lb-margenTop{
+    margin-top: 30px;
+}
+
+.modal-form-registro{
+    height: 400px;
+}
+
+
+.div-hj3-reingreso{
+    padding-left: 3%;
+    width: 50%;
+}
+
+.div-padre-form .div-hijo3 .textarea-dg-entrada-reingreso{
+    height: 250px;
+}
+
+.div-hj1-reingreso{
+   margin-left: 10%;
+   width: 35%;
 }
