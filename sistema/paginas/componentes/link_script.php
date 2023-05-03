@@ -37,8 +37,11 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../assets/dist/js/pages/dashboard.js"></script>
 
-
 <script src="../assets/js/mostrarModalCambiarContrasena.js"></script>
+<script src="../assets/js/modalConfirmarNuevoRegistro.js"></script>
+<script src="../assets/js/modalConfirmarNuevoReingreso.js"></script>
+<script src="../assets/js/modalConfirmarActualizar.js"></script>
+<script src="../assets/js/modalConfirmarNuevoEmpleado.js"></script>
 
 <!-- SweetAlert2 -->
 <script src="../assets/plugins/sweetalert2/sweetalert2.min.js"></script>

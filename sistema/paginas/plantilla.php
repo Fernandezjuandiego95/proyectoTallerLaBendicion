@@ -57,6 +57,12 @@
                   case 1:
                     include "paginas_admin/admin_empleado.php";
                     break;
+                  case 2:
+                    include "paginas_admin/admin_cliente.php";
+                    break;
+                  case 3:
+                    include "paginas_admin/admin_vehiculo.php";
+                    break;
                   case 4:
                     include "componentes/ajustes.php";
                     break;

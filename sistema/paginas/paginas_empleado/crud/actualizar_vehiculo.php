@@ -1,6 +1,6 @@
 <?php
    
-    if(isset($_POST['actualizar'])){
+    if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["actualizar_vehiculo"]) && $_POST["actualizar_vehiculo"] == "vehiculo123"){
 
         $placa = $_POST['placa'];
         $color = $_POST['color'];
@@ -32,13 +32,14 @@
               
           // Confirmar la transacción
           $connection->commit();
+         
           header('Location: index.php?home=3');
           exit();
         } catch (PDOException $e) {
           // Deshacer todas las operaciones realizadas durante la transacción
            $connection->rollback();
          // Mostrar un mensaje de error al usuario
-         echo "Error: No se actualizaron  los datos ❌";
+         echo "<script> alert('Error: No se actualizaron  los datos ❌')</script>";
         }
                  
     }
@@ -66,30 +67,30 @@
 		  <!----------Body------------------------------->
 			<div class="modal-body">
         <!-----------Formulario------------>
-        <form id="vehiculo" action=" " method="post" class="modal-form">
+        <form id="form-actualizar-vehiculo" action=" " method="post" class="modal-form">
           <div class="div-padre-form">  
             <div class="div-hijo1">
-              <input type="number" id="idvehiculo" name="idvehicul_estado" value="<?=$fila['idvehicul_estado']?>">
+              <input type="number" id="idvehiculo" name="idvehicul_estado" value="<?=$fila['idvehicul_estado']?>" required>
                     
               <label id="lb-placa">Placa</label>
-              <input type="text"  name="placa" value="<?=$fila['placa']?>">
+              <input type="text"  name="placa" value="<?=$fila['placa']?>" id="placa-actualizar" required>
                     
               <label>Color</label>
-              <input type="text"  name="color" value="<?=$fila['color']?>">
+              <input type="text"  name="color" value="<?=$fila['color']?>" id="color-actualizar" required>
                   
               <label>Marca</label>
-              <input type="text"  name="marca" value="<?=$fila['marca']?>">
+              <input type="text"  name="marca" value="<?=$fila['marca']?>" id="marca-actualizar" required>
             </div>
 
             <div class="div-hijo2">
               <label id="f-ingreso">Fecha ingreso</label>
-              <input type="date"  name="fecha_ingreso" value="<?=$fila['fecha_ingreso']?>">
+              <input type="date"  name="fecha_ingreso" value="<?=$fila['fecha_ingreso']?>" id="f-ingreso-actualizar" required>
 
               <label>Fecha de salida</label>
-              <input type="date"  name="fecha_salida" value="<?=$fila['fecha_salida']?>">
+              <input type="date"  name="fecha_salida" value="<?=$fila['fecha_salida']?>" id="f-salida-actualizar">
                     
               <label>Estado</label>
-              <select class="form-control" name="idestado1" id="slt-estados" required>
+              <select class="form-control" name="idestado1" id="slt-estados">
                 <option selected value="<?=$fila['idestado']?>"><?=$fila['estado']?></option>
 
                 <?php  for($i=0; $i<sizeof($Estados);$i++){
@@ -100,14 +101,14 @@
 
             <diV class="div-hijo3">                      
               <label id="dg-entrada">Diagnostico de entrada</label>
-              <textarea  name="diagnostico_entrada"><?=$fila['diagnostico_entrada']?></textarea>
+              <textarea  name="diagnostico_entrada" id="d-entrada-actualizar"><?=$fila['diagnostico_entrada']?></textarea>
                       
               <label>Diagnostico de salida</label>
-              <textarea  name="diagnostico_salida"><?=$fila['diagnostico_salida']?></textarea>
+              <textarea  name="diagnostico_salida" id="d-salida-actualizar"><?=$fila['diagnostico_salida']?></textarea>
             </div>
           </div>
-
-            <input  class="btn-actualizar" type="submit" name="actualizar" value="Actualizar">
+            <input type="hidden" name="actualizar_vehiculo" value="vehiculo123">
+            <input  class="btn-actualizar" type="submit"  value="Actualizar">
         </form>
 			</div>
 		</div>
@@ -115,3 +116,31 @@
 </div>
 <?php endforeach; ?>
 
+
+<!----Ventana modal para confirmar el envio del formulario--->
+<div class="modal fade"  id="modal-confirmar-actualizar-vehiculo">
+  <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header" style="border-bottom: 4px solid #AEC0FF; font-family: 'Open Sans';">
+            <div>
+            <h3>CONFIRMAR</h3>
+            <h6>Actualizar Registro</h6>
+            </div>
+              <button type="button" class="close" style="color:red; font-size:30px;" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+            <div class="modal_contenido">
+              <img src="../assets/img/actualizar.png" alt="actualizar" width="90px">
+              <br/>
+              <p class="text_cambiar">Estas seguro de ACTUALIZAR este Registro?</p>
+            </div>
+
+            <div class="modal-footer justify-content-right" style="border-top:1px solid #D1D5DB;">
+              <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn-cambiar" name="actualizar" id="btn-actualizar-vehiculo">Actualizar</button>
+            </div>
+    </div>
+  </div>
+</div>
+<!--------------Fin ventana modal-------------->

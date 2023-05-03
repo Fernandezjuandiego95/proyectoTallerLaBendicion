@@ -17,7 +17,7 @@
   });
 
   //manejador de eventos "click" al botón "Cambiar" dentro de la ventana modal
-  const btnCambiar = document.querySelector(".btn-cambiar");
+  const btnCambiar = document.getElementById("cambiarCont");
   btnCambiar.addEventListener("click", () => {
     // Enviar el formulario
     form.submit();

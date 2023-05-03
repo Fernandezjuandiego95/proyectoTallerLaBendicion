@@ -2,7 +2,7 @@
 <?php
 
 // incertar en la base de datos en las tablas vheiculos y estados_vehiculos 
-if (isset($_POST['reingreso'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["reingreso_vehiculo"]) && $_POST["reingreso_vehiculo"] == "reingreso_vehiculo141") {
   
   $placa = $_POST['placa'];
   $fecha_ingreso = $_POST['fecha_ingreso'];
@@ -28,7 +28,7 @@ if (isset($_POST['reingreso'])) {
     // Deshacer todas las operaciones realizadas durante la transacción
         $connection->rollback();
     // Mostrar un mensaje de error al usuario
-    echo "Error: No se guardaron  los datos ❌";
+    echo "<script> alert('Error: No se guardaron  los datos ❌')</script>";
     }
         
 }
@@ -52,15 +52,15 @@ if (isset($_POST['reingreso'])) {
       <!----------Body------------------------------->
         <div class="modal-body">    
   <!-----------Formulario------------>
-      <form id="vehiculo_insert" action=" " method="post" class="modal-form modal-form-registro">
+      <form id="form-vehiculo-nuevo-reingreso" action=" " method="post" class="modal-form modal-form-registro">
             <div class="div-padre-form"> 
           
               <div class="div-hijo1 div-hj1-reingreso">
                 <label id="lb-placa">Placa</label>
-                <input type="text"  name="placa" required>
+                <input type="text"  name="placa" id="placa-nuevo-reingreso" required>
          
                 <label class="lb-margenTop">Fecha ingreso</label>
-                <input type="date"  name="fecha_ingreso" required>
+                <input type="date"  name="fecha_ingreso" id="f-ingreso-nuevo-reingreso" required>
                       
                 <label class="lb-margenTop">Estado</label>
                 <select class="form-control" name="idestado1" id="slt-estados">
@@ -74,13 +74,41 @@ if (isset($_POST['reingreso'])) {
 
               <diV class="div-hijo3 div-hj3-reingreso">                      
                 <label id="dg-entrada">Diagnostico de entrada</label>
-                <textarea class="textarea-dg-entrada-reingreso" name="diagnostico_entrada" required></textarea>
+                <textarea class="textarea-dg-entrada-reingreso" name="diagnostico_entrada" id="d-entrada-nuevo-reingreso" required></textarea>
               </div>
             </div>
-
-              <input  class="btn-actualizar btn-registrar" type="submit" name="reingreso" value="Registrar">
+              <input type="hidden" name="reingreso_vehiculo" value="reingreso_vehiculo141">
+              <input  class="btn-actualizar btn-registrar" type="submit"  value="Registrar">
       </form>
     </div>
     </div>
 </div>
 </div>
+
+<!----Ventana modal para confirmar el envio del formulario--->
+<div class="modal fade"  id="modal-confirmar-vehiculo-reingreso">
+  <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header" style="border-bottom: 4px solid #AEC0FF; font-family: 'Open Sans';">
+            <div>
+            <h3>CONFIRMAR</h3>
+            <h6>Nuevo Reingreso</h6>
+            </div>
+              <button type="button" class="close" style="color:red; font-size:30px;" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+            <div class="modal_contenido">
+              <img src="../assets/img/actualizar.png" alt="actualizar" width="90px">
+              <br/>
+              <p class="text_cambiar">Estas seguro de CREAR este Reingreso?</p>
+            </div>
+
+            <div class="modal-footer justify-content-right" style="border-top:1px solid #D1D5DB;">
+              <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn-cambiar" name="vehiculoReingreso" id="btn-registrar-vehiculo-reingreso">Registrar</button>
+            </div>
+    </div>
+  </div>
+</div>
+<!--------------Fin ventana modal-------------->

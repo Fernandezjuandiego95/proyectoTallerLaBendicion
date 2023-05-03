@@ -35,6 +35,7 @@
         $query->execute();
         $resultado=$query->fetchAll();
     }
+
 ?>
 
 
@@ -72,7 +73,7 @@
 					<th>F. Salida</th>
 					<th>D. Salida</th>
 					<th>Estado</th>
-					<th colspan="2">Acción</th>
+					<th colspan="1">Acción</th>
                	</tr>
             </thead>
            	<tbody>
@@ -102,9 +103,6 @@
 					<td><?=$fila['estado']?></td>
 					<td>
 						<button type="submit" class="btn-crud btn-editar" data-toggle="modal" data-target="#modal-x1-editar-<?=$contadorVehiculo?>"></button>
-					</td>
-					<td>
-						<button type="button" class="btn-crud btn-eliminar disable" style="cursor: no-drop;"></button>
 					</td>	
 				</tr>
 			<?php endforeach; ?>

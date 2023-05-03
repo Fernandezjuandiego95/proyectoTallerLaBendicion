@@ -74,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="modal-footer justify-content-right" style="border-top:1px solid #D1D5DB;">
               <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn-cambiar" name="cambiar" onclick="mostrarToast()">Cambiar</button>
+              <button type="submit" class="btn-cambiar" name="cambiar" onclick="mostrarToast()" id="cambiarCont">Cambiar</button>
             </div>
     </div>
   </div>

@@ -1,0 +1,53 @@
+
+.barra{
+    margin-left: 37%;
+    width: 40%;
+}
+
+.panel-admin-div-h{
+    width: 45%;
+}
+
+.div-padre-form .div-hijo1 .lb-margenTopCero, .div-padre-form .div-hijo2 .lb-margenTopCero{
+    margin-top: 0px;
+}
+
+.modal-form-usuarios{
+    height: 450px;
+    margin-left: 3%;
+    margin-right: 3%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap:nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-usuarios{
+    height: 70%;
+}
+
+
+#div-radio{
+    display: flex;
+    flex-direction: row;
+    width: 145px;
+    justify-content: space-around;
+    align-items: center;
+
+}
+  
+.lb-radio{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: capitalize;
+    color: #2C2C2E;
+    margin-top: 10px;
+    margin-left: -4px;
+} 
+
+  

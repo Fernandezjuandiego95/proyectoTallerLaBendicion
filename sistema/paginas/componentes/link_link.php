@@ -3,6 +3,7 @@
   <link rel="stylesheet" href="../assets/css/estilos_ajustes.css">
   <link rel="stylesheet" href="../assets/css/estilos_vehiculos.css">
   <link rel="stylesheet" href="../assets/css/estilos_actualizar.css">
+  <link rel="stylesheet" href="../assets/css/estilos_panel_admin.css">
 
   <!-- DataTables -->
   <link rel="stylesheet" href="../assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
