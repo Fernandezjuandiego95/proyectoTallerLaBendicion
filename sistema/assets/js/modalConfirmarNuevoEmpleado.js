@@ -5,16 +5,16 @@
     // Prevenir el envío del formulario
     event.preventDefault();
     // Obtener los valores de los campos
-    const CedulaEmpleado = document.getElementById("cedula-cidadania-nuevo-empleado").value;
+    const CedulaEmpleado = document.getElementById("cedula-ciudadania-nuevo-empleado").value;
     const NombreEmpleado = document.getElementById("nombre-nuevo-empleado").value;
     const ApellidoEmplado = document.getElementById("apellido-nuevo-empleado").value;
     const PasswordEmpleado = document.getElementById("password-nuevo-empleado").value;
     const DireccionEmpleado = document.getElementById("direccion-nuevo-empleado").value;
     const CelularEmpleado = document.getElementById("celular-nuevo-empleado").value;
-    const RolEmpleado = document.getElementById("idrol-empleado-nuevo-empleado").value;
+    
    
     // Verificar si los campos están llenados
-    if (CedulaEmpleado === "" || NombreEmpleado === "" || ApellidoEmplado === "" || PasswordEmpleado === "" || DireccionEmpleado === "" || CelularEmpleado === "" || RolEmpleado === "" ) {
+    if (CedulaEmpleado === "" || NombreEmpleado === "" || ApellidoEmplado === "" || PasswordEmpleado === "" || DireccionEmpleado === "" || CelularEmpleado === "") {
       alert("Por favor, llene todos los campos.");
     } else {
       // Mostrar la ventana modal

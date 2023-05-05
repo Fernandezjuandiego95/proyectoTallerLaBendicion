@@ -66,7 +66,6 @@
                   case 4:
                     include "componentes/ajustes.php";
                     break;
-                
                 default:
                       include "componentes/pagina404.php";
                   break;

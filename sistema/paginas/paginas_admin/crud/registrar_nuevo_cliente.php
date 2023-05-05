@@ -1,24 +1,24 @@
 
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["form-registrar-empleado"]) && $_POST["form-registrar-empleado"] == "nuevoEmpleado12345") {
-     
-  $cedulaEmpleado = $_POST['cedulaEmpleado'];
-  $nombreEmpleado = $_POST['nombreEmpleado'];
-  $apellidoEmpleado = $_POST['apellidoEmpleado'];
-  $direccionEmpleado = $_POST['direccionEmpleado'];
-  $celularEmpleado = $_POST['celularEmpleado'];
-  $passwordEmpleado = $_POST['passwordEmpleado'];
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["registrar_nuevo_cliente"]) && $_POST["registrar_nuevo_cliente"] == "nuevoCliente556") {
+  
+  $cedulaCliente = $_POST['cedulaCliente'];
+  $nombreCliente = $_POST['nombreCliente'];
+  $apellidoCliente = $_POST['apellidoCliente'];
+  $direccionCliente = $_POST['direccionCliente'];
+  $celularCliente = $_POST['celularCliente'];
+  $passwordCliente = $_POST['passwordCliente'];
   $password_hash = password_hash($passwordEmpleado, PASSWORD_BCRYPT);
-  $idrolEmpleado = $_POST['idrolEmpleado'];
+  $idrolCliente = $_POST['idrolCliente'];
 
 
-      $existe_cedula = $connection->prepare("SELECT * FROM usuarios WHERE CEDULA=:cedulaEmpleado");
-      $existe_cedula->bindParam("cedulaEmpleado", $cedulaEmpleado, PDO::PARAM_STR);
+      $existe_cedula = $connection->prepare("SELECT * FROM usuarios WHERE CEDULA=:cedulaCliente");
+      $existe_cedula->bindParam("cedulaCliente", $cedulaCliente, PDO::PARAM_STR);
       $existe_cedula->execute();
    
-      $existe_celular = $connection->prepare("SELECT * FROM usuarios WHERE CELULAR=:celularEmpleado");
-      $existe_celular->bindParam("celularEmpleado", $celularEmpleado, PDO::PARAM_STR);
+      $existe_celular = $connection->prepare("SELECT * FROM usuarios WHERE CELULAR=:celularCliente");
+      $existe_celular->bindParam("celularCliente", $celularCliente, PDO::PARAM_STR);
       $existe_celular->execute();
 
       if ($existe_cedula->rowCount() > 0) {
@@ -32,17 +32,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["form-registrar-emplead
       if ($existe_cedula->rowCount() == 0 && $existe_celular->rowCount() == 0){
             try {      
 
-                $consulta_insert_empld = $connection->prepare("INSERT INTO usuarios(cedula, nombre, apellido, direccion, celular, password, idrol1) VALUES (:cedulaEmpleado, :nombreEmpleado, :apellidoEmpleado, :direccionEmpleado, :celularEmpleado, :password_hash, :idrolEmpleado) ");
-                $consulta_insert_empld ->bindParam("cedulaEmpleado", $cedulaEmpleado, PDO::PARAM_STR);
-                $consulta_insert_empld ->bindParam("nombreEmpleado", $nombreEmpleado, PDO::PARAM_STR);
-                $consulta_insert_empld ->bindParam("apellidoEmpleado", $apellidoEmpleado, PDO::PARAM_STR);
-                $consulta_insert_empld ->bindParam("direccionEmpleado", $direccionEmpleado, PDO::PARAM_STR);
-                $consulta_insert_empld ->bindParam("celularEmpleado", $celularEmpleado, PDO::PARAM_STR);
-                $consulta_insert_empld->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
-                $consulta_insert_empld ->bindParam("idrolEmpleado", $idrolEmpleado, PDO::PARAM_STR);
-                $resultado_empld = $consulta_insert_empld ->execute(); 
+                $consulta_insert_clt = $connection->prepare("INSERT INTO usuarios(cedula, nombre, apellido, direccion, celular, password, idrol1) VALUES (:cedulaCliente, :nombreCliente, :apellidoCliente, :direccionCliente, :celularCliente, :password_hash, :idrolCliente) ");
+                $consulta_insert_clt ->bindParam("cedulaCliente", $cedulaCliente, PDO::PARAM_STR);
+                $consulta_insert_clt ->bindParam("nombreCliente", $nombreCliente, PDO::PARAM_STR);
+                $consulta_insert_clt ->bindParam("apellidoCliente", $apellidoCliente, PDO::PARAM_STR);
+                $consulta_insert_clt ->bindParam("direccionCliente", $direccionCliente, PDO::PARAM_STR);
+                $consulta_insert_clt ->bindParam("celularCliente", $celularCliente, PDO::PARAM_STR);
+                $consulta_insert_clt->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
+                $consulta_insert_clt ->bindParam("idrolCliente", $idrolCliente, PDO::PARAM_STR);
+                $resultado_clt = $consulta_insert_clt ->execute(); 
                 
-                header('Location: index.php?home=1');
+                header('Location: index.php?home=2');
             } catch (PDOException $e) {
             // Mostrar un mensaje de error al usuario
             //die($e->getMessage());
@@ -54,8 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["form-registrar-emplead
 
 ?>
 
-<!------------------Modal Diagnostico Entrada---------------->
-<div class="modal fade" id="modal-lg-registrar-empleado">
+<!------------------Modal------------------------------->
+<div class="modal fade" id="modal-lg-registrar-cliente">
     <div class="modal-dialog modal-lg" >
         <div class="modal-content" style="border-radius: 30px;border: solid  #BBB5B5; border-width: 2px 0px 0px 2px;">
             <!---------Encabezado-------------------------->
@@ -71,36 +71,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["form-registrar-emplead
             <!----------Body------------------------------->
             <div class="modal-body">    
             <!-----------Formulario------------>
-                <form id="form-nuevo-empleado" action=" " method="post" class="modal-form-usuarios">
+                <form id="form-nuevo-cliente" action=" " method="post" class="modal-form-usuarios">
                     <div class="div-padre-form form-usuarios"> 
                     
                         <div class="div-hijo1 panel-admin-div-h">
                             <label class="lb-margenTopCero">Cedula de Ciudadania</label>
-                            <input type="bigint"  name="cedulaEmpleado" id="cedula-ciudadania-nuevo-empleado" required>
+                            <input type="bigint"  name="cedulaCliente" id="cedula-ciudadania-nuevo-cliente" required>
                                 
                             <label class="lb-margenTop">Nombre</label>
-                            <input type="text"  name="nombreEmpleado" id="nombre-nuevo-empleado" required>
+                            <input type="text"  name="nombreCliente" id="nombre-nuevo-cliente" required>
                                 
                             <label class="lb-margenTop">Apellido</label>
-                            <input type="text"  name="apellidoEmpleado" id="apellido-nuevo-empleado" required>
+                            <input type="text"  name="apellidoCliente" id="apellido-nuevo-cliente" required>
                         </div>
 
                         <div class="div-hijo2 panel-admin-div-h">
                             <label class="lb-margenTopCero">Contraseña</label>
-                            <input type="password"  name="passwordEmpleado" id="password-nuevo-empleado" required>
+                            <input type="password"  name="passwordCliente" id="password-nuevo-cliente" required>
                     
                             <label class="lb-margenTop">Direccion</label>
-                            <input type="text"  name="direccionEmpleado" id="direccion-nuevo-empleado" required>
+                            <input type="text"  name="direccionCliente" id="direccion-nuevo-cliente" required>
                                 
                             <label class="lb-margenTop">Celular</label>
-                            <input type="tel"  name="celularEmpleado" id="celular-nuevo-empleado" required>
+                            <input type="tel"  name="celularCliente" id="celular-nuevo-cliente" required>
                         </div>
-                        <input type="hidden" name="form-registrar-empleado" value="nuevoEmpleado12345">
+                        <input type="hidden" name="registrar_nuevo_cliente" value="nuevoCliente556">
                     </div>
                     <div id="div-radio">
                         <label class="lb-margenTop">Rol:</label>
-                        <input type="radio"  name="idrolEmpleado" value="2" checked />
-                        <label class="lb-radio">2-Empleado</label>
+                        <input type="radio"  name="idrolCliente" value="3" checked />
+                        <label class="lb-radio">3-Cliente</label>
                     </div>
                     <input type="submit"  class="btn-actualizar btn-registrar"  value="Registrar">
                 </form>
@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["form-registrar-emplead
 
 
 <!----Ventana modal para confirmar el envio del formulario--->
-<div class="modal fade"  id="modal-confirmar-nuevo-empleado">
+<div class="modal fade"  id="modal-confirmar-nuevo-cliente">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" style="border-bottom: 4px solid #AEC0FF; font-family: 'Open Sans';">
@@ -132,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["form-registrar-emplead
 
             <div class="modal-footer justify-content-right" style="border-top:1px solid #D1D5DB;">
             <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn-cambiar"  id="btn-registrar-nuevo-empleado">Registrar</button>
+            <button type="submit" class="btn-cambiar"  id="btn-registrar-nuevo-cliente">Registrar</button>
             </div>
         </div>
     </div>

@@ -1,10 +1,10 @@
 <?php
 
     //Verificar si se ha enviado una solicitud de búsqueda
-    if(isset($_POST['buscar_empleado']) && !empty($_POST['buscar_Empld'])){
+    if(isset($_POST['buscar_cliente']) && !empty($_POST['buscar_Clt'])){
         //Obtener el valor ingresado en el campo de búsqueda
-        $Encontrar_empleado = $_POST['buscar_Empld'];
-        $idrol = 2;
+        $Encontrar_empleado = $_POST['buscar_Clt'];
+        $idrol = 3;
         //Construir la consulta SQL para obtener los registros que coincidan 
         $consulta_buscar=$connection->prepare("SELECT u.cedula, u.nombre, u.apellido, u.celular, u.direccion,u.password, r.rol
                                                 FROM usuarios AS u
@@ -14,14 +14,14 @@
         $consulta_buscar->bindParam(':Encontrar_empleado', $Encontrar_empleado);
         $consulta_buscar->bindParam("idrol", $idrol, PDO::PARAM_STR);
         $consulta_buscar->execute();
-        $resultado_empleados = $consulta_buscar->fetchAll();
+        $resultado_clientes = $consulta_buscar->fetchAll();
 		
-        if($resultado_empleados == null){
+        if($resultado_clientes == null){
             echo '<p class="BusquedaNoencontrada p-posicion">No se encontraron resultados.</p>';
 		}
     }else{
         //Si no se ha enviado una solicitud de búsqueda, obtener todos los registros
-        $idrol = 2;
+        $idrol = 3;
         $query=$connection->prepare("SELECT u.cedula, u.nombre, u.apellido, u.celular, u.direccion,u.password, r.rol
                                      FROM usuarios AS u
                                      INNER JOIN roles AS r
@@ -29,7 +29,7 @@
                                      WHERE u.idrol1 = :idrol");
         $query->bindParam("idrol", $idrol, PDO::PARAM_STR);
         $query->execute();
-        $resultado_empleados=$query->fetchAll();
+        $resultado_clientes=$query->fetchAll();
      }
 ?>
 
@@ -39,12 +39,12 @@
 <div class="barra__buscador">
     <form action="" class="formulario barra" method="post">
         <fieldset class="field-container">
-        <input type="text" name="buscar_Empld" placeholder="Buscar empleado por su numero de cedula" 
+        <input type="text" name="buscar_Clt" placeholder="Buscar cliente por su numero de cedula" 
          class="input__text" required>
-        <input type="submit" class="buscar_placa" name="buscar_empleado" >
+        <input type="submit" class="buscar_placa" name="buscar_cliente" >
         </fieldset>
     </form>
-	<button type="button" class="btn-nuevo-vehiculo" data-toggle="modal" data-target="#modal-lg-registrar-empleado">NUEVO EMPLEADO</button>
+	<button type="button" class="btn-nuevo-vehiculo" data-toggle="modal" data-target="#modal-lg-registrar-cliente">NUEVO CLIENTE</button>
 </div>
 <br/>
 <!----------------------Fin Barra Buscador---------------------->
@@ -68,9 +68,9 @@
             </thead>
            	<tbody>
 
-			<?php $contadorEmpleado = 0;
-			      foreach($resultado_empleados as $fila):
-					$contadorEmpleado++;
+			<?php $contadorCliente = 0;
+			      foreach($resultado_clientes as $fila):
+					$contadorCliente++;
 			?>
                	<tr>
 					<td><?=$fila['cedula']?></td>
@@ -80,7 +80,7 @@
 					<td><?=$fila['direccion']?></td>
                     <td><?=$fila['rol']?></td>
 					<td>
-						<button type="submit" class="btn-crud btn-editar" data-toggle="modal" data-target="#modal-lg-editar-empleado-<?=$contadorEmpleado?>"></button>
+						<button type="submit" class="btn-crud btn-editar" data-toggle="modal" data-target="#modal-lg-editar-cliente<?=$contadorCliente?>"></button>
 					</td>
 					<td>
 						<button type="button" class="btn-crud btn-eliminar"></button>
@@ -97,6 +97,6 @@
 
 
 <?php 
-    include "crud/registrar_nuevo_empleado.php";
-    include "crud/actualizar_empleado.php";
+    include "crud/registrar_nuevo_cliente.php";
+    include "crud/actualizar_cliente.php";
 ?>	
