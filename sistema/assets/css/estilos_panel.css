@@ -5,11 +5,7 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.ilustracion {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
+
 
 .div_image_user{
    margin-left: 20px;
