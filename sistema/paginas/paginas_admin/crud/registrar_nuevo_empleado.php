@@ -102,6 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["formulario_especifico"
                         <input type="radio"  name="idrolEmpleado" value="2" checked />
                         <label class="lb-radio">2-Empleado</label>
                     </div>
+                    
                     <input type="submit"  class="btn-actualizar btn-registrar"  value="Registrar">
                 </form>
             </div>

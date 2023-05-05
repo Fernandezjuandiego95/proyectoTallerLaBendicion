@@ -131,7 +131,7 @@
           <i class="fas fa-caret-left fa-2x"></i>
           <p class="parrafo-modal">
             <?=$fila['idvehicul_estado'].') '?> 
-            <?=$fila['fecha_ingreso'].':'?>
+            <?=$fila['fecha_salida'].':'?>
           </p>
         </div>
           <p class="parrafo-modal p-diag"><?=$fila['diagnostico_salida']?></p>

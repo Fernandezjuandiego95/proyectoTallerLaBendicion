@@ -30,7 +30,7 @@
                                         on(v.placa = vs.placa1 ) 
                                         inner join estados e 
                                         on (vs.idestado1 = e.idestado)
-										WHERE v.eliminar =1
+                                        WHERE v.eliminar =1
 										ORDER BY idvehicul_estado DESC
 										LIMIT 5");
         $query->execute();
@@ -50,8 +50,7 @@
         <input type="submit" class="buscar_placa" name="buscar_placa" >
         </fieldset>
     </form>
-	<button type="button" class="btn-nuevo-vehiculo btn-nuevo-reingreso" data-toggle="modal" data-target="#modal-lg-reingreso">NUEVO REINGRESO</button>
-	<button type="button" class="btn-nuevo-vehiculo" data-toggle="modal" data-target="#modal-lg-registrar">NUEVO VEHICULO</button>
+	
 </div>
 <br/>
 <!----------------------Fin Barra Buscador---------------------->
@@ -104,6 +103,9 @@
 					<td><?=$fila['estado']?></td>
 					<td>
 						<button type="submit" class="btn-crud btn-editar" data-toggle="modal" data-target="#modal-x1-editar-<?=$contadorVehiculo?>"></button>
+					</td>
+                    <td>
+					    <button type="button" class="btn-crud btn-eliminar" data-toggle="modal" data-target="#modal-x1-eliminar-<?=$contadorVehiculo?>"></button>
 					</td>	
 				</tr>
 			<?php endforeach; ?>
@@ -190,7 +192,6 @@
 </div>
 <!-------------Fin Modal diagnostico salida-------------->  
 <?php endforeach;
- include "crud/registrar_vehiculo_nuevo.php";
- include "crud/registrar_vehiculo_reingreso.php";
  include "crud/actualizar_vehiculo.php";
+ include "crud/eliminar_vehiculo.php";
 ?>	  
