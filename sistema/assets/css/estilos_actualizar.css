@@ -119,6 +119,7 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 20px;
+    padding-right: 10px;
 }
 .div-padre-form .div-hijo1 input:focus, .div-padre-form .div-hijo2 input:focus, .div-padre-form .div-hijo3 textarea:focus, #slt-estados:focus{
     border: 1px solid #00a968;

@@ -42,6 +42,10 @@
 <script src="../assets/js/modalConfirmarNuevoReingreso.js"></script>
 <script src="../assets/js/modalConfirmarActualizar.js"></script>
 <script src="../assets/js/modalConfirmarNuevoEmpleado.js"></script>
+<script src="../assets/js/modalConfirmarActualizarEmpleado.js"></script>
+<script src="../assets/js/modalConfirmarNuevoCliente.js"></script>
+<script src="../assets/js/modalConfirmarActualizarCliente.js"></script>
+
 
 <!-- SweetAlert2 -->
 <script src="../assets/plugins/sweetalert2/sweetalert2.min.js"></script>
