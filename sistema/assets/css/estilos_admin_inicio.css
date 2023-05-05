@@ -1,0 +1,97 @@
+*, *:after, *:before {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    --color-pricpal:#FFCB51;
+}
+
+.section-group{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+ }
+
+.section-group .div-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 120px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #DFE0EB;
+    border-radius: 8px;
+}
+
+.section-group .card-estados{
+    width: 130px;
+    height: 80px;
+}
+
+.text-informacion{
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    color:  #514C4C;
+    margin-left: 3%;
+    margin-top: 5px;
+}
+
+.text-h4{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+    color: #9FA2B4;
+}
+
+.text-span{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 1px;
+    color: #252733;
+}
+
+.text-estados-h4{
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.text-estados-span{
+    font-size: 28px;
+    margin-top: -10px;
+}
+
+
+.section-group .div-card:hover{
+    border: 2px solid #FFC24D;
+    cursor: pointer;
+    color: #AB7904;
+}
+
+.section-group .div-card:hover h4 {
+    color: #B78000;
+}
+
+.section-group .div-card:hover span{
+    color: #AB7904;
+}
+
+
+.ilustracion {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 1%;
+}
