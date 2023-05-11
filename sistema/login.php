@@ -46,7 +46,7 @@ if (isset($_POST['login'])) {
 <div class="div-transparent">
     <div class="img-mujer"></div>
 
-<form method="post" action="" name="signin-form">
+<form method="post" action="" name="signin-form" class="form">
     <img src="assets/img/logo.jpeg" alt="logo" class="logo">
     <h2 class="h2-iniciar">Iniciar Sesión</h2>
     <div class="form-element">

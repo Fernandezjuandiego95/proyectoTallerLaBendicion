@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-04-2023 a las 23:45:42
+-- Tiempo de generación: 05-05-2023 a las 23:46:58
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -165,9 +165,13 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`cedula`, `nombre`, `apellido`, `direccion`, `celular`, `password`, `idrol1`) VALUES
-(1005646517, 'Diego', 'Barrios', 'Albania', 3154355938, '$2y$10$YOll6e33ue8IE3URJ5mGBuII6SAbDDBKDAecY.P6yjY7jvdx2lm8K', 2),
+(1000666777, 'ruben', 'pereza', 'betulia', 3021333999, '$2y$10$0EWCOBLfDHVRp8SXxzVkn.eF9bXGLEhgPJzffY91n.0E4oQIeu8ze', 2),
+(1005646517, 'Diego', 'Barrios', 'Albania', 3154355938, '$2y$10$zNwhod6bSNQmCEP.HBpXreuhUG9EHVZz73bYwDcAHns4fLTEfIS86', 2),
+(1005649111, 'frank', 'caseres', 'albania/barrio', 3021734869, '$2y$10$9nxZ1LT9kzW0d7YwrbvsauOe1kP9UmBig7owWQzF1jQuRQDLzCZaC', 2),
 (1005649691, 'Juan', 'Fernandez', 'sincelejo/plaza-majagual', 3017256135, '$2y$10$VmUdBKx5aAzNbrAIp6j8XuEPUKmGS4IFcJrX0uMRSCaDObHzQLlPm', 1),
-(1005661372, 'Moises', 'mendez', 'carr55 25b 76', 3004320257, '$2y$10$tvSErGnUynDr7jZ83bsjDeNMfoMN5mSIU/Z4NZC6.0gCmWj7PeoaS', 3);
+(1005649693, 'Samuel', 'Marcus', 'lorica', 3283542321, '$2y$10$HwbyMqjKGRK.g0qXh.Cn9ehpNUq2WVybEX8K05mFGRv/c5rkq5vDi', 3),
+(1005661372, 'Moises', 'mendez', 'carr55 25b 76', 3004320257, '$2y$10$tTHzEtYRYFUi6l75mXx7VO0aawTMtp5hh4.e2LjTOzHVQL6H2XVB2', 3),
+(1005666777, 'lana', 'martinez', 'albania/barrio', 3154355938, '$2y$10$XwuYqwvfjl6GESgPHCoRP.FzHB3YSF/fIMLerg1mgR8dOe2q3OSxu', 2);
 
 -- --------------------------------------------------------
 
@@ -188,19 +192,22 @@ CREATE TABLE `usuarios_permisos` (
 --
 
 CREATE TABLE `vehiculo` (
-  `placa` varchar(6) NOT NULL,
+  `placa` varchar(7) NOT NULL,
   `color` varchar(45) NOT NULL,
   `marca` varchar(45) NOT NULL,
-  `cedula2` bigint(10) NOT NULL
+  `cedula2` bigint(10) NOT NULL,
+  `eliminar` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `vehiculo`
 --
 
-INSERT INTO `vehiculo` (`placa`, `color`, `marca`, `cedula2`) VALUES
-('dr1-6', 'azul', 'suzuki', 1005646517),
-('xyz-56', 'cafe', 'akate', 1005649691);
+INSERT INTO `vehiculo` (`placa`, `color`, `marca`, `cedula2`, `eliminar`) VALUES
+('dr1-6', 'Negro', 'suzuki', 1005646517, 1),
+('KJI-45K', 'fuccia', 'marcana', 1005649111, 1),
+('wrz-34t', 'verde', 'kawasaki', 1005649691, 1),
+('xyz-56', 'azul', 'victory', 1005649691, 1);
 
 -- --------------------------------------------------------
 
@@ -214,7 +221,7 @@ CREATE TABLE `vehiculos_estados` (
   `diagnostico_entrada` varchar(150) NOT NULL,
   `fecha_salida` date NOT NULL,
   `diagnostico_salida` varchar(150) NOT NULL,
-  `placa1` varchar(6) NOT NULL,
+  `placa1` varchar(7) NOT NULL,
   `idestado1` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -223,9 +230,11 @@ CREATE TABLE `vehiculos_estados` (
 --
 
 INSERT INTO `vehiculos_estados` (`idvehicul_estado`, `fecha_ingreso`, `diagnostico_entrada`, `fecha_salida`, `diagnostico_salida`, `placa1`, `idestado1`) VALUES
-(1, '2023-04-01', 'Problemas al arrancar.\r\n\r\nFuga o perdida de aceite.', '2023-04-05', 'Revisión de la parte eléctrica.\r\n\r\ncambio de empaques para controlar la fuga de aceite.', 'dr1-6', 6),
 (2, '2023-04-22', 'Problemas', '2023-04-30', 'Revisión', 'dr1-6', 5),
-(3, '2023-04-25', 'la motocicleta eta botando humo azul en grandes cantidades y el motor se esta recalentando.\r\n\r\n', '2023-04-30', 'cambio de anillos de la moto, limpieza del motor', 'xyz-56', 3);
+(3, '2023-04-25', 'la motocicleta eta botando humo azul en grandes cantidades y el motor se esta recalentando.\r\n\r\n', '2023-04-30', 'cambio de anillos de la moto, limpieza del motor', 'xyz-56', 6),
+(41, '2023-05-02', 'ererererer', '2023-05-06', 'vvvvvvvvvvvvvvvvvvbbbbbbbb', 'dr1-6', 5),
+(45, '2023-05-02', 'ddddd', '0000-00-00', '', 'KJI-45K', 2),
+(46, '2023-05-05', 'xxxxxxxxxxxx', '0000-00-00', '', 'KJI-45K', 1);
 
 --
 -- Índices para tablas volcadas
@@ -345,7 +354,7 @@ ALTER TABLE `usuarios_permisos`
 -- AUTO_INCREMENT de la tabla `vehiculos_estados`
 --
 ALTER TABLE `vehiculos_estados`
-  MODIFY `idvehicul_estado` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idvehicul_estado` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- Restricciones para tablas volcadas

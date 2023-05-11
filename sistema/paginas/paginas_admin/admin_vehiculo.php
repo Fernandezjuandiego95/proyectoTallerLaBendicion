@@ -43,7 +43,7 @@
 
 <!------------------------Barra Buscador------------------------>
 <div class="barra__buscador">
-    <form action="" class="formulario buscador" method="post">
+    <form action="" class="formulario buscadorvh" method="post">
         <fieldset class="field-container">
         <input type="text" name="buscar" placeholder="Ingrese la placa del vehiculo" 
          class="input__text" required>

@@ -45,65 +45,66 @@
     $resultadoEtgd = $contar_estado_Etgd->fetch(PDO::FETCH_ASSOC);
 ?>
 
+<section class="section-content">
+    <section>
+        <h4 class="text-informacion">Registros Importantes:</h4>
+            <section class="section-group">
 
-<section>
-    <h4 class="text-informacion">Registros Importantes:</h4>
-        <section class="section-group">
+                <div class="div-card">
+                    <h4 class="text-h4">Vehiculos</h4>
+                    <span class="text-span"><?=$resultadoVhcl['cantidadVehiculo']?></span>
+                </div>
 
-            <div class="div-card">
-                <h4 class="text-h4">Vehiculos</h4>
-                <span class="text-span"><?=$resultadoVhcl['cantidadVehiculo']?></span>
-            </div>
+                <div class="div-card">
+                    <h4 class="text-h4">Empleados</h4>
+                    <span class="text-span"><?=$resultadoEmpl['cantidadEmpleado']?></span>
+                </div>
 
-            <div class="div-card">
-                <h4 class="text-h4">Empleados</h4>
-                <span class="text-span"><?=$resultadoEmpl['cantidadEmpleado']?></span>
-            </div>
+                <div class="div-card">
+                    <h4 class="text-h4">Clientes</h4>
+                    <span class="text-span"><?=$resultadoClt['cantidadCliente']?></span>
+                </div>
+            </section>
+    </section>
+    <br/>
+    <section>
+        <h4 class="text-informacion">Vehiculos En Estado:</h4>
+            <section class="section-group">
+                <div class="div-card card-estados">
+                    <h4 class="text-h4 text-estados-h4">Espera</h4>
+                    <span class="text-span text-estados-span"><?=$resultadoEspr['cantidadEspera']?></span>
+                </div>
 
-            <div class="div-card">
-                <h4 class="text-h4">Clientes</h4>
-                <span class="text-span"><?=$resultadoClt['cantidadCliente']?></span>
-            </div>
-        </section>
-</section>
-<br/>
-<section>
-    <h4 class="text-informacion">Vehiculos En Estado:</h4>
-        <section class="section-group">
-            <div class="div-card card-estados">
-                <h4 class="text-h4 text-estados-h4">Espera</h4>
-                <span class="text-span text-estados-span"><?=$resultadoEspr['cantidadEspera']?></span>
-            </div>
+                <div class="div-card card-estados">
+                    <h4 class="text-h4 text-estados-h4">Revisión</h4>
+                    <span class="text-span text-estados-span"><?=$resultadoRvsn['cantidadRevision']?></span>
+                </div>
 
-            <div class="div-card card-estados">
-                <h4 class="text-h4 text-estados-h4">Revisión</h4>
-                <span class="text-span text-estados-span"><?=$resultadoRvsn['cantidadRevision']?></span>
-            </div>
+                <div class="div-card card-estados">
+                    <h4 class="text-h4 text-estados-h4">Proceso</h4>
+                    <span class="text-span text-estados-span"><?=$resultadoPcs['cantidadProceso']?></span>
+                </div>
 
-            <div class="div-card card-estados">
-                <h4 class="text-h4 text-estados-h4">Proceso</h4>
-                <span class="text-span text-estados-span"><?=$resultadoPcs['cantidadProceso']?></span>
-            </div>
+                <div class="div-card card-estados">
+                    <h4 class="text-h4 text-estados-h4">Verificación</h4>
+                    <span class="text-span text-estados-span"><?=$resultadoVfcn['cantidadVerifi']?></span>
+                </div>
 
-            <div class="div-card card-estados">
-                <h4 class="text-h4 text-estados-h4">Verificación</h4>
-                <span class="text-span text-estados-span"><?=$resultadoVfcn['cantidadVerifi']?></span>
-            </div>
+                <div class="div-card card-estados">
+                    <h4 class="text-h4 text-estados-h4">Finalizado</h4>
+                    <span class="text-span text-estados-span"><?=$resultadoFnld['cantidadFinalizado']?></span>
+                </div>
 
-            <div class="div-card card-estados">
-                <h4 class="text-h4 text-estados-h4">Finalizado</h4>
-                <span class="text-span text-estados-span"><?=$resultadoFnld['cantidadFinalizado']?></span>
-            </div>
-
-            <div class="div-card card-estados">
-                <h4 class="text-h4 text-estados-h4">Entregado</h4>
-                <span class="text-span text-estados-span"><?=$resultadoEtgd['cantidadEntregado']?></span>
-            </div>
-        </section>
-</section>
-
-<section class="ilustracion">
-    <img src="../assets/img/planta1.png" alt="Ilustracion" width="110px" height="140px">
-    <img src="../assets/img/progreso.png" alt="Ilustracion" width="350px" height="250px">
-    <img src="../assets/img/planta2.png" alt="Ilustracion" width="86px" height="150px">
+                <div class="div-card card-estados">
+                    <h4 class="text-h4 text-estados-h4">Entregado</h4>
+                    <span class="text-span text-estados-span"><?=$resultadoEtgd['cantidadEntregado']?></span>
+                </div>
+            </section>
+    </section>
+    
+    <section class="ilustracion">
+        <img src="../assets/img/planta1.png" alt="Ilustracion" width="110px" height="140px">
+        <img src="../assets/img/progreso.png" alt="Ilustracion" width="350px" height="250px">
+        <img src="../assets/img/planta2.png" alt="Ilustracion" width="86px" height="150px">
+    </section>
 </section>
