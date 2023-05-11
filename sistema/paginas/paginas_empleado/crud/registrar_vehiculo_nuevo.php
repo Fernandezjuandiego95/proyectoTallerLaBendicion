@@ -55,6 +55,11 @@
       }      
     }
 
+
+
+
+
+
 ?>
     
 <!------------------Modal Diagnostico Entrada---------------->
@@ -93,7 +98,7 @@
                     <input type="bigint"  name="cedula" id="cedula-nuevo-registro" required>
              
                     <label class="lb-margenTop">Fecha ingreso</label>
-                    <input type="date"  name="fecha_ingreso" id="f-ingreso-nuevo-registro" required>
+                    <input type="date"  name="fecha_ingreso" id="f-ingreso-nuevo-registro" min="<?=$fecha_minima?>" max="<?=$fecha_maxima?>" required>
                           
                     <label class="lb-margenTop">Estado</label>
                     <select class="form-control" name="idestado1" id="slt-estados">

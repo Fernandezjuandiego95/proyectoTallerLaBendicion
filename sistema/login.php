@@ -9,7 +9,7 @@ if (isset($_POST['login'])) {
     $cedula = $_POST['cedula'];
     $password = $_POST['password'];
  
-    $query = $connection->prepare("SELECT * FROM usuarios WHERE CEDULA=:cedula");
+    $query = $connection->prepare("SELECT * FROM usuarios WHERE CEDULA=:cedula AND eliminar_usuario=1");
     $query->bindParam("cedula", $cedula, PDO::PARAM_STR);
     $query->execute();
  
@@ -46,7 +46,7 @@ if (isset($_POST['login'])) {
 <div class="div-transparent">
     <div class="img-mujer"></div>
 
-<form method="post" action="" name="signin-form">
+<form method="post" action="" name="signin-form" class="form">
     <img src="assets/img/logo.jpeg" alt="logo" class="logo">
     <h2 class="h2-iniciar">Iniciar Sesión</h2>
     <div class="form-element">

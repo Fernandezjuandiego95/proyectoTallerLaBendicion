@@ -10,7 +10,7 @@
                                                 FROM usuarios AS u
                                                 INNER JOIN roles AS r
                                                 ON u.idrol1 = r.idrol
-                                                WHERE u.cedula = :Encontrar_empleado AND u.idrol1 = :idrol");
+                                                WHERE u.cedula = :Encontrar_empleado AND u.idrol1 = :idrol and u.eliminar_usuario=1");
         $consulta_buscar->bindParam(':Encontrar_empleado', $Encontrar_empleado);
         $consulta_buscar->bindParam("idrol", $idrol, PDO::PARAM_STR);
         $consulta_buscar->execute();
@@ -26,7 +26,7 @@
                                      FROM usuarios AS u
                                      INNER JOIN roles AS r
                                      ON u.idrol1 = r.idrol
-                                     WHERE u.idrol1 = :idrol");
+                                     WHERE u.idrol1 = :idrol and u.eliminar_usuario=1");
         $query->bindParam("idrol", $idrol, PDO::PARAM_STR);
         $query->execute();
         $resultado_clientes=$query->fetchAll();
@@ -82,9 +82,10 @@
 					<td>
 						<button type="submit" class="btn-crud btn-editar" data-toggle="modal" data-target="#modal-lg-editar-cliente<?=$contadorCliente?>"></button>
 					</td>
-					<td>
-						<button type="button" class="btn-crud btn-eliminar"></button>
-					</td>	
+						
+                    <td>
+					    <button type="button" class="btn-crud btn-eliminar" data-toggle="modal" data-target="#modal-x1-eliminar-<?=$contadorCliente?>"></button>
+					</td>
 				</tr>
 			<?php endforeach; ?>
 			</tbody>
@@ -99,4 +100,5 @@
 <?php 
     include "crud/registrar_nuevo_cliente.php";
     include "crud/actualizar_cliente.php";
+    include "crud/eliminar_cliente.php";
 ?>	
