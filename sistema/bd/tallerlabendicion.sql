@@ -165,12 +165,12 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
+<<<<<<< HEAD
 INSERT INTO `usuarios` (`cedula`, `nombre`, `apellido`, `direccion`, `celular`, `password`, `idrol1`, `eliminar_usuario`) VALUES
 (1005661372, 'Moises', 'Mendez', 'Carr 55 25b 76 san miguel', 3004320257, '$2y$10$YOll6e33ue8IE3URJ5mGBuII6SAbDDBKDAecY.P6yjY7jvdx2lm8K', 1, 1);
-
--- --------------------------------------------------------
-
---
+=======
+(1000666777, 'ruben', 'pereza', 'betulia', 3021333999, '$2y$10$0EWCOBLfDHVRp8SXxzVkn.eF9bXGLEhgPJzffY91n.0E4oQIeu8ze', 2),
+(1005646517, 'Diego', 'Barrios', 'Albania', 3154355938, '$2y$10$zNwhod6bSNQmCEP.HBpXreuhUG9EHVZz73bYwDcAHns4fLTEfIS86', 2),
 -- Estructura de tabla para la tabla `usuarios_permisos`
 --
 
@@ -191,9 +191,25 @@ CREATE TABLE `vehiculo` (
   `color` varchar(45) NOT NULL,
   `marca` varchar(45) NOT NULL,
   `cedula2` bigint(10) NOT NULL,
+<<<<<<< HEAD
   `eliminar` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+=======
+  `eliminar` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `vehiculo`
+--
+
+INSERT INTO `vehiculo` (`placa`, `color`, `marca`, `cedula2`, `eliminar`) VALUES
+('dr1-6', 'Negro', 'suzuki', 1005646517, 1),
+('KJI-45K', 'fuccia', 'marcana', 1005649111, 1),
+('wrz-34t', 'verde', 'kawasaki', 1005649691, 1),
+('xyz-56', 'azul', 'victory', 1005649691, 1);
+
+>>>>>>> f6b6d8b (Importando la BD)
 -- --------------------------------------------------------
 
 --
@@ -205,12 +221,30 @@ CREATE TABLE `vehiculos_estados` (
   `fecha_ingreso` date NOT NULL,
   `diagnostico_entrada` longtext NOT NULL,
   `fecha_salida` date NOT NULL,
+<<<<<<< HEAD
   `diagnostico_salida` longtext NOT NULL,
+=======
+  `diagnostico_salida` varchar(150) NOT NULL,
+>>>>>>> f6b6d8b (Importando la BD)
   `placa1` varchar(7) NOT NULL,
   `idestado1` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+<<<<<<< HEAD
+=======
+-- Volcado de datos para la tabla `vehiculos_estados`
+--
+
+INSERT INTO `vehiculos_estados` (`idvehicul_estado`, `fecha_ingreso`, `diagnostico_entrada`, `fecha_salida`, `diagnostico_salida`, `placa1`, `idestado1`) VALUES
+(2, '2023-04-22', 'Problemas', '2023-04-30', 'Revisión', 'dr1-6', 5),
+(3, '2023-04-25', 'la motocicleta eta botando humo azul en grandes cantidades y el motor se esta recalentando.\r\n\r\n', '2023-04-30', 'cambio de anillos de la moto, limpieza del motor', 'xyz-56', 6),
+(41, '2023-05-02', 'ererererer', '2023-05-06', 'vvvvvvvvvvvvvvvvvvbbbbbbbb', 'dr1-6', 5),
+(45, '2023-05-02', 'ddddd', '0000-00-00', '', 'KJI-45K', 2),
+(46, '2023-05-05', 'xxxxxxxxxxxx', '0000-00-00', '', 'KJI-45K', 1);
+
+--
+>>>>>>> f6b6d8b (Importando la BD)
 -- Índices para tablas volcadas
 --
 
@@ -328,7 +362,11 @@ ALTER TABLE `usuarios_permisos`
 -- AUTO_INCREMENT de la tabla `vehiculos_estados`
 --
 ALTER TABLE `vehiculos_estados`
+<<<<<<< HEAD
   MODIFY `idvehicul_estado` int(4) NOT NULL AUTO_INCREMENT;
+=======
+  MODIFY `idvehicul_estado` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+>>>>>>> f6b6d8b (Importando la BD)
 
 --
 -- Restricciones para tablas volcadas
