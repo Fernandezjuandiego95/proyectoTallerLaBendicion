@@ -181,7 +181,7 @@ foreach($resultado_pdf as $fila){
        $pdf->Ln(-5);
        $pdf->MultiCell(190, 7, utf8_decode($fila['diagnostico_entrada']), 0, 'L', 0);
        $pdf->MultiCell(190, 7, '', 'B', 'L', 0);
-       $pdf->Ln(60);
+       $pdf->Ln(40);
    // separador y titulo
        // Arial 12
        $pdf->SetFont('Arial','',12);
@@ -189,6 +189,7 @@ foreach($resultado_pdf as $fila){
        $pdf->SetFillColor(247,202,122);
        // Título
       
+     
        $pdf->Cell(0,6,"Diagnostico de salida: ".$fila['fecha_salida'],0,0,'C',true);
        
        // Salto de línea
