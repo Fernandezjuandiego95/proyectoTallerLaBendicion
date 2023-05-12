@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["reingreso_vehiculo"]) 
         
 }
 
+
 ?>
 
 <!------------------Modal Diagnostico Entrada---------------->
@@ -60,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["reingreso_vehiculo"]) 
                 <input type="text"  name="placa" id="placa-nuevo-reingreso" required>
          
                 <label class="lb-margenTop">Fecha ingreso</label>
-                <input type="date"  name="fecha_ingreso" id="f-ingreso-nuevo-reingreso" required>
+                <input type="date"  name="fecha_ingreso" id="f-ingreso-nuevo-reingreso" min="<?=$fecha_minima?>" max="<?=$fecha_maxima?>" required>
                       
                 <label class="lb-margenTop">Estado</label>
                 <select class="form-control" name="idestado1" id="slt-estados">

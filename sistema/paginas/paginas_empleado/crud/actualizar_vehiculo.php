@@ -84,10 +84,10 @@
 
             <div class="div-hijo2">
               <label id="f-ingreso">Fecha ingreso</label>
-              <input type="date"  name="fecha_ingreso" value="<?=$fila['fecha_ingreso']?>" id="f-ingreso-actualizar" required>
+              <input type="date"  name="fecha_ingreso" value="<?=$fila['fecha_ingreso']?>" id="f-ingreso-actualizar" min="<?=$fecha_minima?>" max="<?=$fecha_maxima?>" required>
 
               <label>Fecha de salida</label>
-              <input type="date"  name="fecha_salida" value="<?=$fila['fecha_salida']?>" id="f-salida-actualizar">
+              <input type="date"  name="fecha_salida" value="<?=$fila['fecha_salida']?>" id="f-salida-actualizar" min="<?=$fecha_minima?>" max="<?=$fecha_maxima?>">
                     
               <label>Estado</label>
               <select class="form-control" name="idestado1" id="slt-estados">

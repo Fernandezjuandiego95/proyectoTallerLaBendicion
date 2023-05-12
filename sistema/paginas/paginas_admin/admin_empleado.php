@@ -10,7 +10,7 @@
                                                 FROM usuarios AS u
                                                 INNER JOIN roles AS r
                                                 ON u.idrol1 = r.idrol
-                                                WHERE u.cedula = :Encontrar_empleado AND u.idrol1 = :idrol");
+                                                WHERE u.cedula = :Encontrar_empleado AND u.idrol1 = :idrol and u.eliminar_usuario=1");
         $consulta_buscar->bindParam(':Encontrar_empleado', $Encontrar_empleado);
         $consulta_buscar->bindParam("idrol", $idrol, PDO::PARAM_STR);
         $consulta_buscar->execute();
@@ -26,7 +26,8 @@
                                      FROM usuarios AS u
                                      INNER JOIN roles AS r
                                      ON u.idrol1 = r.idrol
-                                     WHERE u.idrol1 = :idrol");
+                                     WHERE u.idrol1 = :idrol and u.eliminar_usuario=1");
+                                      
         $query->bindParam("idrol", $idrol, PDO::PARAM_STR);
         $query->execute();
         $resultado_empleados=$query->fetchAll();
@@ -83,7 +84,7 @@
 						<button type="submit" class="btn-crud btn-editar" data-toggle="modal" data-target="#modal-lg-editar-empleado-<?=$contadorEmpleado?>"></button>
 					</td>
 					<td>
-						<button type="button" class="btn-crud btn-eliminar"></button>
+					    <button type="button" class="btn-crud btn-eliminar" data-toggle="modal" data-target="#modal-x1-eliminar-<?=$contadorEmpleado?>"></button>
 					</td>	
 				</tr>
 			<?php endforeach; ?>
@@ -99,4 +100,5 @@
 <?php 
     include "crud/registrar_nuevo_empleado.php";
     include "crud/actualizar_empleado.php";
+    include "crud/eliminar_empleado.php";
 ?>	

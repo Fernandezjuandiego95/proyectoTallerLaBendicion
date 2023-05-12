@@ -37,6 +37,10 @@
         $resultado=$query->fetchAll();
     }
 
+	
+    $fecha_minima = date("Y-m-d"); // Fecha actual
+    $fecha_maxima = date("Y-m-d", strtotime("+1 day")); // Fecha actual + 1 día
+
 ?>
 
 

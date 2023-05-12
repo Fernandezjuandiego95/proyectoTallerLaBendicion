@@ -1,46 +1,88 @@
 <?php
    //Contar numero de vehiculos
+<<<<<<< HEAD
    $contar_vehiculos = $connection->prepare("SELECT COUNT(*) AS cantidadVehiculo FROM vehiculo");
+=======
+   $contar_vehiculos = $connection->prepare("SELECT COUNT(*) AS cantidadVehiculo FROM vehiculo WHERE eliminar=1");
+>>>>>>> desarrollo_m
    $contar_vehiculos->execute(); 
    $resultadoVhcl = $contar_vehiculos->fetch(PDO::FETCH_ASSOC); 
 
    //Contar nuemro de Empleados
+<<<<<<< HEAD
    $contar_empleados = $connection->prepare("SELECT COUNT(*) AS cantidadEmpleado FROM usuarios WHERE idrol1 = 2");
+=======
+   $contar_empleados = $connection->prepare("SELECT COUNT(*) AS cantidadEmpleado FROM usuarios WHERE idrol1 = 2  AND eliminar_usuario=1");
+>>>>>>> desarrollo_m
    $contar_empleados->execute(); 
    $resultadoEmpl = $contar_empleados->fetch(PDO::FETCH_ASSOC); 
 
    //contar numero de clientes
+<<<<<<< HEAD
    $contar_clientes = $connection->prepare("SELECT COUNT(*) AS cantidadCliente FROM usuarios WHERE idrol1 = 3");
+=======
+   $contar_clientes = $connection->prepare("SELECT COUNT(*) AS cantidadCliente FROM usuarios WHERE idrol1 = 3  AND eliminar_usuario=1");
+>>>>>>> desarrollo_m
    $contar_clientes->execute(); 
    $resultadoClt = $contar_clientes->fetch(PDO::FETCH_ASSOC);   
    
    //contar vehiculos en Espera
+<<<<<<< HEAD
    $contar_estado_espera = $connection->prepare("SELECT COUNT(*) AS cantidadEspera FROM vehiculos_estados WHERE idestado1 = 1");
+=======
+   $contar_estado_espera = $connection->prepare("SELECT COUNT(*) AS cantidadEspera FROM vehiculos_estados vs inner join vehiculo v 
+   on(vs.placa1 = v.placa )   WHERE idestado1 = 1 AND v.eliminar=1 " );
+>>>>>>> desarrollo_m
    $contar_estado_espera->execute(); 
    $resultadoEspr = $contar_estado_espera->fetch(PDO::FETCH_ASSOC);  
 
    //contar vehiculos en Revision
+<<<<<<< HEAD
    $contar_estado_revision = $connection->prepare("SELECT COUNT(*) AS cantidadRevision FROM vehiculos_estados WHERE idestado1 = 2");
+=======
+   $contar_estado_revision = $connection->prepare("SELECT COUNT(*) AS cantidadRevision FROM vehiculos_estados vs inner join vehiculo v 
+   on(vs.placa1 = v.placa )   WHERE idestado1 = 2 AND v.eliminar=1");
+>>>>>>> desarrollo_m
    $contar_estado_revision->execute(); 
    $resultadoRvsn = $contar_estado_revision->fetch(PDO::FETCH_ASSOC);
 
    //contar vehiculos en Proceso
+<<<<<<< HEAD
    $contar_estado_proceso = $connection->prepare("SELECT COUNT(*) AS cantidadProceso FROM vehiculos_estados WHERE idestado1 = 3");
+=======
+   $contar_estado_proceso = $connection->prepare("SELECT COUNT(*) AS cantidadProceso FROM vehiculos_estados vs inner join vehiculo v 
+   on(vs.placa1 = v.placa )   WHERE idestado1 = 3 AND v.eliminar=1");
+>>>>>>> desarrollo_m
    $contar_estado_proceso->execute(); 
    $resultadoPcs = $contar_estado_proceso->fetch(PDO::FETCH_ASSOC);
 
    //contar vehiculos en Verificacion
+<<<<<<< HEAD
    $contar_estado_verifi = $connection->prepare("SELECT COUNT(*) AS cantidadVerifi FROM vehiculos_estados WHERE idestado1 = 4");
+=======
+   $contar_estado_verifi = $connection->prepare("SELECT COUNT(*) AS cantidadVerifi FROM vehiculos_estados vs inner join vehiculo v 
+   on(vs.placa1 = v.placa  )  WHERE idestado1 = 4 AND v.eliminar=1  ");
+>>>>>>> desarrollo_m
    $contar_estado_verifi->execute(); 
    $resultadoVfcn = $contar_estado_verifi->fetch(PDO::FETCH_ASSOC);
 
    //contar vehiculos en Finalizacion
+<<<<<<< HEAD
    $contar_estado_Fnld = $connection->prepare("SELECT COUNT(*) AS cantidadFinalizado FROM vehiculos_estados WHERE idestado1 = 5");
+=======
+   $contar_estado_Fnld = $connection->prepare("SELECT COUNT(*) AS cantidadFinalizado FROM vehiculos_estados vs inner join vehiculo v 
+   on(vs.placa1 = v.placa )   WHERE idestado1 = 5 AND v.eliminar=1");
+>>>>>>> desarrollo_m
    $contar_estado_Fnld->execute(); 
    $resultadoFnld = $contar_estado_Fnld->fetch(PDO::FETCH_ASSOC);
 
     //contar vehiculos en Entregado
+<<<<<<< HEAD
     $contar_estado_Etgd = $connection->prepare("SELECT COUNT(*) AS cantidadEntregado FROM vehiculos_estados WHERE idestado1 = 6");
+=======
+    $contar_estado_Etgd = $connection->prepare("SELECT COUNT(*) AS cantidadEntregado FROM vehiculos_estados vs inner join vehiculo v 
+    on(vs.placa1 = v.placa )   WHERE idestado1 = 6 AND v.eliminar=1");
+>>>>>>> desarrollo_m
     $contar_estado_Etgd->execute(); 
     $resultadoEtgd = $contar_estado_Etgd->fetch(PDO::FETCH_ASSOC);
 ?>

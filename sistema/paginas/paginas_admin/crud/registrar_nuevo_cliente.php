@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["registrar_nuevo_client
   $passwordCliente = $_POST['passwordCliente'];
   $password_hash = password_hash($passwordEmpleado, PASSWORD_BCRYPT);
   $idrolCliente = $_POST['idrolCliente'];
+  $eliminar_usuario= $_POST['eliminar_usuario'];
 
 
       $existe_cedula = $connection->prepare("SELECT * FROM usuarios WHERE CEDULA=:cedulaCliente");
@@ -32,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["registrar_nuevo_client
       if ($existe_cedula->rowCount() == 0 && $existe_celular->rowCount() == 0){
             try {      
 
-                $consulta_insert_clt = $connection->prepare("INSERT INTO usuarios(cedula, nombre, apellido, direccion, celular, password, idrol1) VALUES (:cedulaCliente, :nombreCliente, :apellidoCliente, :direccionCliente, :celularCliente, :password_hash, :idrolCliente) ");
+                $consulta_insert_clt = $connection->prepare("INSERT INTO usuarios(cedula, nombre, apellido, direccion, celular, password, idrol1, eliminar_usuario) VALUES (:cedulaCliente, :nombreCliente, :apellidoCliente, :direccionCliente, :celularCliente, :password_hash, :idrolCliente,:eliminar_usuario) ");
                 $consulta_insert_clt ->bindParam("cedulaCliente", $cedulaCliente, PDO::PARAM_STR);
                 $consulta_insert_clt ->bindParam("nombreCliente", $nombreCliente, PDO::PARAM_STR);
                 $consulta_insert_clt ->bindParam("apellidoCliente", $apellidoCliente, PDO::PARAM_STR);
@@ -40,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["registrar_nuevo_client
                 $consulta_insert_clt ->bindParam("celularCliente", $celularCliente, PDO::PARAM_STR);
                 $consulta_insert_clt->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
                 $consulta_insert_clt ->bindParam("idrolCliente", $idrolCliente, PDO::PARAM_STR);
+                $consulta_insert_clt ->bindParam("eliminar_usuario", $eliminar_usuario, PDO::PARAM_STR);
                 $resultado_clt = $consulta_insert_clt ->execute(); 
                 
                 header('Location: index.php?home=2');
@@ -94,6 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["registrar_nuevo_client
                                 
                             <label class="lb-margenTop">Celular</label>
                             <input type="tel"  name="celularCliente" id="celular-nuevo-cliente" required>
+                            <input type="hidden" name ="eliminar_usuario" value="1">
                         </div>
                         <input type="hidden" name="registrar_nuevo_cliente" value="nuevoCliente556">
                     </div>

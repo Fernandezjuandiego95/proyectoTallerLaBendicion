@@ -9,7 +9,7 @@ if (isset($_POST['login'])) {
     $cedula = $_POST['cedula'];
     $password = $_POST['password'];
  
-    $query = $connection->prepare("SELECT * FROM usuarios WHERE CEDULA=:cedula");
+    $query = $connection->prepare("SELECT * FROM usuarios WHERE CEDULA=:cedula AND eliminar_usuario=1");
     $query->bindParam("cedula", $cedula, PDO::PARAM_STR);
     $query->execute();
  

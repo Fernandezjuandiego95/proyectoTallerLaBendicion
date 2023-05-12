@@ -11,6 +11,7 @@
       $fecha_ingreso = $_POST['fecha_ingreso'];
       $diagnostico_entrada = $_POST['diagnostico_entrada'];
       $idestado1 = $_POST['idestado1'];
+      $eliminar = $_POST['eliminar'];
 
 
       $consulta_existe = $connection->prepare("SELECT placa FROM vehiculo WHERE PLACA=:placa");
@@ -25,11 +26,12 @@
         try {      
           $connection->beginTransaction();
 
-                $consulta_insert1 = $connection->prepare("INSERT INTO vehiculo(placa,color,marca,cedula2) VALUES (:placa,:color,:marca,:cedula) ");
+                $consulta_insert1 = $connection->prepare("INSERT INTO vehiculo(placa,color,marca,cedula2,eliminar) VALUES (:placa,:color,:marca,:cedula,:eliminar) ");
                 $consulta_insert1->bindParam("placa", $placa, PDO::PARAM_STR);
                 $consulta_insert1->bindParam("color", $color, PDO::PARAM_STR);
                 $consulta_insert1->bindParam("marca", $marca, PDO::PARAM_STR);
                 $consulta_insert1->bindParam("cedula", $cedula, PDO::PARAM_STR);
+                $consulta_insert1->bindParam("eliminar", $eliminar, PDO::PARAM_STR);
                 $result_1 = $consulta_insert1->execute();
 
 
@@ -54,6 +56,11 @@
         }
       }      
     }
+
+
+
+
+
 
 ?>
     
@@ -93,7 +100,7 @@
                     <input type="bigint"  name="cedula" id="cedula-nuevo-registro" required>
              
                     <label class="lb-margenTop">Fecha ingreso</label>
-                    <input type="date"  name="fecha_ingreso" id="f-ingreso-nuevo-registro" required>
+                    <input type="date"  name="fecha_ingreso" id="f-ingreso-nuevo-registro" min="<?=$fecha_minima?>" max="<?=$fecha_maxima?>" required>
                           
                     <label class="lb-margenTop">Estado</label>
                     <select class="form-control" name="idestado1" id="slt-estados">
@@ -110,6 +117,7 @@
                     <textarea class="textarea-dg-entrada" name="diagnostico_entrada" id="d-entrada-nuevo-registro" required></textarea>
                   </div>
                 </div>
+                <input type="hidden" name ="eliminar" value="1">
                   <input type="hidden" name="registrar_vehiculo" value="registrar_vehiculo1234">
                   <input  class="btn-actualizar btn-registrar" type="submit"  value="Registrar">
           </form>

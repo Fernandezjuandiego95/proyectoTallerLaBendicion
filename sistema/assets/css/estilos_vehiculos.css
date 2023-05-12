@@ -26,13 +26,16 @@
 .btn-eliminar{
     background-image: url('./../img/eliminar.png');
 }
+.btn-reporte{
+    background-image: url('./../img/reporte.png');
+}
 
-.btn-editar:hover, .btn-eliminar:hover{
+.btn-editar:hover, .btn-eliminar:hover, .btn-reporte:hover{
     -webkit-filter: drop-shadow(1px 1px 1px #666666);
     filter: drop-shadow(1px 1px 1px #666666);
 }
 
-.btn-editar:active, .btn-eliminar:active{
+.btn-editar:active, .btn-eliminar:active, .btn-reporte:active {
     background-size: 38px;
 }
 

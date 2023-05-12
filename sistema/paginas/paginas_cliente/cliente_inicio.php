@@ -1,3 +1,5 @@
+
+
 <!------------------------Barra Buscar------------------------>
 <div class="barra__buscador">
     <img src="../assets/img/Businessman.png" alt="ilustracion" class="Businessman">
@@ -15,16 +17,35 @@
 
 <?php
 	if(isset ($_POST['buscar_placa'])){
+
+    $placa_buscar = $_POST['buscar'];
+
+    $select_buscar=$connection->prepare("SELECT *
+    FROM vehiculo v  
+    inner join vehiculos_estados vs 
+    on(v.placa = vs.placa1 ) 
+    inner join estados e 
+    on (vs.idestado1 = e.idestado)
+    WHERE v.placa = :placa_buscar and v.eliminar=1
+    ORDER BY idvehicul_estado DESC");
+
+$select_buscar->bindParam(':placa_buscar', $placa_buscar);
+$select_buscar->execute();
+$resultado_busqueda=$select_buscar->fetchAll();
+		
+
+
+/*
 		$buscar_text=$_POST['buscar'];
 		$select_buscar=$connection->prepare(
     'SELECT v.idvehicul_estado, v.placa1, v.fecha_ingreso, e.estado, v.fecha_salida, v.diagnostico_entrada, v.diagnostico_salida
      FROM vehiculos_estados  AS v 
      INNER JOIN estados AS e
-     ON v.idestado1 = e.idestado WHERE v.placa1 LIKE :buscar;');
+     ON v.idestado1 = e.idestado WHERE v.placa1 and v.eliminar=1 LIKE :buscar;');
 
 		$select_buscar->execute(array(':buscar' =>"%".$buscar_text."%"));
 
-		$resultado_busqueda=$select_buscar->fetchAll(PDO::FETCH_ASSOC);
+		$resultado_busqueda=$select_buscar->fetchAll(PDO::FETCH_ASSOC); */
 
     if(count($resultado_busqueda) > 0) {
 ?>
@@ -64,6 +85,21 @@
                   <i class="fas fa-envelope"></i> Ver
                 </a>
             </td>
+            <td>
+            
+                   <!-- <form action="" method="post" target="_blank" rel="noopener">
+                      
+      
+                      <input type="hidden" name ="idvehiculo_estado" value="<?//=$fila['idvehicul_estado']?>"> -->
+                      
+                      <a href="componentes/fpdf/reporte.php?x=<?=$fila['idvehicul_estado']?>" target="_blank" rel="noopener" >
+					              <button type="submint" class="btn-crud btn-reporte"></button>
+                      </a>
+                      
+                   <!-- </forme>-->
+
+           
+					</td>
           </tr>
         <?php endforeach; ?>
         </tbody>
@@ -147,6 +183,9 @@
 </div>
 <!-------------Fin Modal diagnostico Entrada-------------->
 
+
+
+
 <?php endforeach; 
     }else{
       echo '<p class="BusquedaNoencontrada">No se encontraron resultados.</p>';
@@ -163,3 +202,19 @@
 <img src="../assets/img/personal_info.svg" alt="ilustracion" class="personal_info">
 </section>
 <!---------------------Fin Ilustracion-------------------------->
+
+<?php
+
+
+//if (isset($_POST['idvehiculo_estado'])){
+
+ // $idvehiculo_estado = $_POST['idvehiculo_estado'];
+
+  //include("componentes/fpdf/reporte.php");
+
+//}
+
+
+
+
+?>

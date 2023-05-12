@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["form-registrar-emplead
   $passwordEmpleado = $_POST['passwordEmpleado'];
   $password_hash = password_hash($passwordEmpleado, PASSWORD_BCRYPT);
   $idrolEmpleado = $_POST['idrolEmpleado'];
+  $eliminar_usuario= $_POST['eliminar_usuario'];
 
 
       $existe_cedula = $connection->prepare("SELECT * FROM usuarios WHERE CEDULA=:cedulaEmpleado");
@@ -32,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["form-registrar-emplead
       if ($existe_cedula->rowCount() == 0 && $existe_celular->rowCount() == 0){
             try {      
 
-                $consulta_insert_empld = $connection->prepare("INSERT INTO usuarios(cedula, nombre, apellido, direccion, celular, password, idrol1) VALUES (:cedulaEmpleado, :nombreEmpleado, :apellidoEmpleado, :direccionEmpleado, :celularEmpleado, :password_hash, :idrolEmpleado) ");
+                $consulta_insert_empld = $connection->prepare("INSERT INTO usuarios(cedula, nombre, apellido, direccion, celular, password, idrol1,eliminar_usuario) VALUES (:cedulaEmpleado, :nombreEmpleado, :apellidoEmpleado, :direccionEmpleado, :celularEmpleado, :password_hash, :idrolEmpleado,:eliminar_usuario) ");
                 $consulta_insert_empld ->bindParam("cedulaEmpleado", $cedulaEmpleado, PDO::PARAM_STR);
                 $consulta_insert_empld ->bindParam("nombreEmpleado", $nombreEmpleado, PDO::PARAM_STR);
                 $consulta_insert_empld ->bindParam("apellidoEmpleado", $apellidoEmpleado, PDO::PARAM_STR);
@@ -40,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["form-registrar-emplead
                 $consulta_insert_empld ->bindParam("celularEmpleado", $celularEmpleado, PDO::PARAM_STR);
                 $consulta_insert_empld->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
                 $consulta_insert_empld ->bindParam("idrolEmpleado", $idrolEmpleado, PDO::PARAM_STR);
+                $consulta_insert_empld ->bindParam("eliminar_usuario", $eliminar_usuario, PDO::PARAM_STR);
                 $resultado_empld = $consulta_insert_empld ->execute(); 
                 
                 header('Location: index.php?home=1');
@@ -94,6 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["form-registrar-emplead
                                 
                             <label class="lb-margenTop">Celular</label>
                             <input type="tel"  name="celularEmpleado" id="celular-nuevo-empleado" required>
+                            <input type="hidden" name ="eliminar_usuario" value="1">
                         </div>
                         <input type="hidden" name="form-registrar-empleado" value="nuevoEmpleado12345">
                     </div>
