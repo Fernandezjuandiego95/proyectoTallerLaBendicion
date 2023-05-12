@@ -36,12 +36,8 @@
         $query->execute();
         $resultado=$query->fetchAll();
     }
-<<<<<<< HEAD
-
-=======
 	$fecha_minima = date("Y-m-d"); // Fecha actual
     $fecha_maxima = date("Y-m-d", strtotime("+1 day")); // Fecha actual + 1 día
->>>>>>> desarrollo_m
 ?>
 
 
