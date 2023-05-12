@@ -31,7 +31,7 @@ $altiriaSMS->setDebug(true);
 $sDestination = $celular2;
 //$sDestination = array('346xxxxxxxx','346yyyyyyyy');
 
-$response = $altiriaSMS->sendSMS($sDestination, "Desde Motorepuestos la Bendicion, se le informa que su vehiculo esta en estado finalizado, por lo que puede pasar por él en horario laboral");
+$response = $altiriaSMS->sendSMS($sDestination, "Motorepuestos la Bendicion informa que puede pasar por su vehiculo");
 
 if (!$response)
   echo "El envio ha terminado en error";
