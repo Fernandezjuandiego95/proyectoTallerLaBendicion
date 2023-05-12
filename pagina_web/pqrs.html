@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="assets/css/pqrsf.css">
+    <title>pqrs</title>
+</head>
+<body>
+    <header class="headerwave">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light stroke py-lg-0 nav">
+                <h1 class="h1">
+                    FORMULARIO DE PQRSF 
+                </h1>
+              
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav ms-lg-auto my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class=" active ini" aria-current="page" href="index.html">Inicio</a>
+                        </li>
+                        <img  src="assets/imgProductos/moto.png" width="70px"/>
+                    </ul>
+                </div>
+             
+            </nav>
+        </div>
+    </header>
+
+
+    <form  action="https://formsubmit.co/Repuestoslabendicion22@gmail.com" method="POST">
+
+        <label class="l"> TIPO DE SOLICITUD  </label> 
+
+        <select name="solicitd" required>
+            <option value="h">Solicitud</option> 
+            <option value="Peticion">Peticion</option> 
+            <option value="Queja">Queja</option>
+            <option value="Reclamo">Reclamo</option>
+            <option value="Sugerencia">Sugerencia</option>
+            <option value="Felicitacion">Felicitacion</option>
+        </select>
+
+       
+		<input type="text" name="nombre" placeholder="Ingresa tu nombre" required><br>
+
+        
+		<input type="text" name="Apellido" placeholder="Ingrese su Apellido" required><br>
+        
+        <label> Documento de identidad  </label> 
+		<select name="CC" required>
+            <option value="Peticion" >Cedula de ciudadania</option> 
+            <option value="Queja">Cedula extranjeria</option>  
+        </select>
+
+		<input type="number" name="cc" placeholder="Ingrese su numero" required><br>
+
+         
+		<input type="text" name="gmail" placeholder="Correo electronico" required><br>
+
+        <input type="text" name="Telefono" placeholder="Telefono" required><br>
+		<input type="text" name="Departamento" placeholder="Departamento" required><br>
+
+        <input type="text" name="Municipio" placeholder="Municipio" required><br>
+		<input type="text" name="Direccion" placeholder="Direccion" required><br>
+        
+        
+        <label> DESCRIPCIÓN DE LA SOLICITUD </label> 
+
+        
+        <textarea name="texto" cols="30" rows="10" placeholder="Escriba su solicitud" class="texto"></textarea>
+        <input type="submit" id="envio" value="" class="btn" required>
+
+        <input type="hidden" name="_next" value="http://localhost/proyectos/pagina%20web/pqrs.html">
+        
+        <input type="hidden" name="_captcha" value="false">
+    </form>
+
+
+
+
+
+    <footer id="footer" class="wthree-footerhny">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                   <img src="assets/imgProductos/bajaj.jpeg"  class="lf"/>
+                   <img src="assets/imgProductos/pp.jpeg" class="lf" />
+                   <img src="assets/imgProductos/nkg.jpeg" class="lf"/>
+                   <img src="assets/imgProductos/gx.jpeg" class="lf"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <p class="copy-footer-29">© 2022 Moto Repueso La Bendicion. Todos los derechos reservados </p>
+                </div>
+
+            </div>
+        </div>
+
+        <button onclick="topFunction()" id="movetop" title="Go to top" style="display: block;">
+            <span class="fa fa-angle-up"></span>
+        </button>
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+
+
+
+            var envio = document.getElementById("envio")
+            envio.addEventListener("click",alerta)
+            function alerta(){
+            alert("Mensaje enviado")
+           }
+            
+
+           
+
+        </script>
+      
+    </footer>
+</body>
+
+
+
+</html>

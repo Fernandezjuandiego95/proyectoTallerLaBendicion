@@ -1,0 +1,113 @@
+*, *:after, *:before {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    --color-pricpal:#FFCB51;
+}
+
+.form-sms{
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.input-sms{
+    width: 70%;
+    height: 50px;
+    border: 2px solid #C0C0C0;
+    border-radius: 8px;
+    padding-left: 20px;
+    background-color: transparent;
+
+    /*estlos del texto (placeholder)*/
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #807D7D;
+    outline: medium none;
+    filter: drop-shadow(0px 2px 1px rgba(0, 0, 0, 0.25));
+}
+.input-sms:focus{
+    border: 1px solid #d59711;
+    border-bottom: 2px solid #d59711;
+    font-size: 16px;
+    filter: none;
+}
+
+.btn-notificar{
+    width: 100px;
+    height: 50px;
+    background: #F5BF46;
+    border-radius: 4px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 17px;
+    color: #3a3939;
+    border:none;
+}
+
+.btn-notificar:hover{
+    border: 2px outset #d59711;
+    font-weight: 600;
+}
+
+.btn-notificar:active{
+    width: 96px;
+    height: 46px;
+}
+
+.div_content_text_sms{
+    margin-top: 30px;
+    border-bottom: 1px solid #818181;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.text_notificar{
+    font-family: 'Abhaya Libre SemiBold';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 38px;
+    color: #000000;
+}
+
+.div_img{
+    width: 50%;
+    height: 350px;
+    margin: auto;
+    margin-top: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_img img{
+   width: 80%;
+   height: 100%;
+}
+
+.div-notificar{
+    width: 60%;
+    height: 100%;
+    padding-left: 44%;
+}
+
+.div_content_text_sms .div-notificar img{
+    width: 60px;
+    height: 60px;
+    margin-top: -20px;
+}

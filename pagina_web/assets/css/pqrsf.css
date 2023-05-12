@@ -1,0 +1,107 @@
+body{
+    background-image: url(../imgProductos/fondo2.jpg);
+
+    background-size: cover;
+}
+form{
+background-color: rgb(255, 255, 255);
+width: 90%;
+margin: auto;
+margin-bottom: 5rem;
+border-radius: 2%;
+
+}
+
+form:hover{
+
+    -webkit-box-shadow: 13px 15px 5px 0px rgb(170, 179, 179);
+-moz-box-shadow: 13px 15px 5px 0px rgba(170, 179, 179);
+box-shadow: 13px 15px 5px 0px rgba(170, 179, 179);
+
+}
+select {
+margin-left: 5%;
+    width: 90%;
+}
+
+label{
+
+    margin-left: 5%;
+}
+input{
+
+    background-color: #f0f1f5;
+     border: none;
+     border-radius: 10px;
+     font-size: 14px;
+     height: 30px;
+     padding: 5px;
+     width: 90%;
+     height: 3.1rem;
+     margin-top: 2rem;
+     margin-left: 5%;
+     
+}
+
+input:focus{
+
+    border: solid 1px rgb(8, 240, 8);
+    
+}
+
+label{
+margin-top: 2rem;
+margin-bottom: 1rem;
+
+}
+
+.l{
+
+    margin-top: 2rem;
+}
+
+
+
+.texto{
+
+   
+    background-color: #f0f1f5;
+     border: none;
+     border-radius: 10px;
+     font-size: 14px;
+     height: 30px;
+     padding: 5px;
+     width: 90%;
+     height: 10rem;
+     margin-top: 2rem;
+     margin-left: 5%;
+}
+
+
+
+.btn{
+   border: none;
+    margin-left: 50%;
+    cursor: pointer;
+    width: 5rem;
+    height: 5rem;
+    background-image: url(../imgProductos/avion.png) ;
+    background-size: 5rem;
+    background-repeat: no-repeat;
+    
+}
+
+.btn:hover{
+    height: 7rem ;
+    width: 7rem;
+    background-size: 7rem;
+    transform: rotate(40deg);
+}
+
+.btn:active{
+   border: none;
+    background-image: url(../imgProductos/cagilla.png) ;
+    background-size: 4rem;
+    height: 4rem;
+    width: 4rem;
+}
