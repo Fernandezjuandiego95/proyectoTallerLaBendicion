@@ -13,8 +13,8 @@ include('httpPHPAltiria.php');
 $altiriaSMS = new AltiriaSMS();
 //$altiriaSMS -> setUrl("http://www.altiria.net/api/http");
 
-$altiriaSMS->setLogin('moises_mendez@uajs.edu.co');
-$altiriaSMS->setPassword('7fc4n8nb');
+$altiriaSMS->setLogin('juan_fernandez@uajs.edu.co');
+$altiriaSMS->setPassword('qyp96unb');
 // Descomentar para utilizar la autentificaci�n mediante apikey
 //$altiriaSMS->setApikey('YY');
 //$altiriaSMS->setApisecret('ZZ');
@@ -29,15 +29,14 @@ $altiriaSMS->setDebug(true);
 
 //$sDestination = '346xxxxxxxx';
 $sDestination = $celular2;
-
-var_dump($sDestination);
 //$sDestination = array('346xxxxxxxx','346yyyyyyyy');
 
-$response = $altiriaSMS->sendSMS($sDestination, "Mensaje de prueba hola juan");
+$response = $altiriaSMS->sendSMS($sDestination, "Motorepuestos la Bendicion informa que puede pasar por su vehiculo");
 
 if (!$response)
-  echo "El env�o ha terminado en error";
+  echo "El envio ha terminado en error";
 else
-  echo $response;
+  echo "<script> alert('Notificacion Enviada ✅✅')</script>";
+
 ?>
 

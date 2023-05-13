@@ -14,7 +14,11 @@ body {
 
 .form {
     margin: auto;
+<<<<<<< HEAD
+    margin-top: 10vh;
+=======
     
+>>>>>>> desarrollo_m
     padding: 20px;
     border-radius: 10px;
     width: 450px;
@@ -100,7 +104,7 @@ button:active {
 
 .div-transparent{
     width: 100%;
-    height: 600px;
+    height: 90vh;
     margin-top: -2rem;
     padding-top: 1.5%;
     box-sizing: border-box;

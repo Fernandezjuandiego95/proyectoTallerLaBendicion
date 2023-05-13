@@ -1,0 +1,78 @@
+<html>
+
+
+
+	<head>
+	
+		<title> formulario </title>
+		
+		<link rel=stylesheet href="estilos.css" type="text/css"></link>
+		
+	</head>
+
+	
+	<body>
+		<head>
+  
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			<title>productos </title>
+		
+			<link rel="stylesheet" href="assets/css/style-starter.css">
+			<link rel="stylesheet" href="assets/css/estilos.css">
+		</head>
+
+		
+		<CENTER>
+			<h2> FORMULARIO DE PQRS</h2>
+		</CENTER>
+		
+		<div>
+		
+			<h2>TIPO DE SOLICITUD</h2>
+			<form method="post" action="trabajo.php">
+			<center>
+				<label> Ingrese el nombre del articulo  </label> 
+				<input type="text" name="nombre_art"><br>
+				
+				<label> Ingrese la cantidad del articulo  </label> 
+				<input type="num" name="cantidad_art"><br>
+				
+				<label> Ingrese precio neto del articulo por unidad  </label>
+				<input type="num" name="precio_art"><br>
+				
+				<label> seleccione tipo de cliente </label>
+				<select name="selector1">
+					<option value="Normal">Normal</option> 
+					<option value="Mayorista">Mayorista</option>
+					<option value="Distribuidor">Distribuidor</option>
+				</select>
+				
+				<br><br>
+				
+				<label> tipo de tarejeta</label>
+				<select name="selector2">
+					<option value="Devito">Devito</option> 
+					<option value="Credito">Credito</option>
+				</select>
+				
+				<br>
+				
+				<label> Ingrese numero de tarejeta </label>
+				<input type="num" name="numero_tar"><br>
+				
+				<label> Ingrese codigo de verificacion </label>
+				<input type="num" name="codigo_tar"><br>
+				
+				
+				<input type="submit" value="enviar">
+				</center>
+			</form>
+		
+		</div>
+		
+	
+	</body>
+
+
+</html>

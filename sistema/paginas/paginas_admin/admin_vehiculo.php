@@ -36,6 +36,7 @@
         $query->execute();
         $resultado=$query->fetchAll();
     }
+	date_default_timezone_set('America/Bogota');
 	$fecha_minima = date("Y-m-d"); // Fecha actual
     $fecha_maxima = date("Y-m-d", strtotime("+1 day")); // Fecha actual + 1 día
 ?>

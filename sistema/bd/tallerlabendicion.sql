@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-05-2023 a las 19:49:39
+-- Tiempo de generación: 12-05-2023 a las 23:50:10
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -158,7 +158,7 @@ CREATE TABLE `usuarios` (
   `celular` bigint(200) NOT NULL,
   `password` varchar(255) NOT NULL,
   `idrol1` int(2) NOT NULL,
-  `eliminar_usuario` int(11) NOT NULL
+  `eliminar_usuario` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -166,7 +166,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`cedula`, `nombre`, `apellido`, `direccion`, `celular`, `password`, `idrol1`, `eliminar_usuario`) VALUES
-(1005661372, 'Moises', 'Mendez', 'Carr 55 25b 76 san miguel', 3004320257, '$2y$10$YOll6e33ue8IE3URJ5mGBuII6SAbDDBKDAecY.P6yjY7jvdx2lm8K', 1, 1);
+(1005646517, 'Diego', 'Barrios', 'albania', 3154355938, '$2y$10$jE4UhbAeKFe2xVX42.E24.o1/7mM3CdpxdaSn5G1Bpq41odUhZTW6', 2, 1),
+(1005649691, 'Juan', 'Fernandez', 'cr-5 cl-#3-6', 3017256135, '$2y$10$VmUdBKx5aAzNbrAIp6j8XuEPUKmGS4IFcJrX0uMRSCaDObHzQLlPm', 1, 1),
+(1005661372, 'Moises', 'Mendez', 'cr 55-25B 76', 3004320257, '$2y$10$jE4UhbAeKFe2xVX42.E24.o1/7mM3CdpxdaSn5G1Bpq41odUhZTW6', 3, 1),
+(1104383297, 'Oswaldo', 'Tamara', 'cr 34-29C 18', 3114683383, '$2y$10$DveJTAdV0IBZ1/U6hR0H9uKqz5X62oRm8rVfZ/lL53tS//mvgGxGW', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -191,8 +194,16 @@ CREATE TABLE `vehiculo` (
   `color` varchar(45) NOT NULL,
   `marca` varchar(45) NOT NULL,
   `cedula2` bigint(10) NOT NULL,
-  `eliminar` int(11) NOT NULL
+  `eliminar` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `vehiculo`
+--
+
+INSERT INTO `vehiculo` (`placa`, `color`, `marca`, `cedula2`, `eliminar`) VALUES
+('WRT-65R', 'Azul', 'Platino', 1104383297, 1),
+('YOU-34F', 'Negro', 'Victory', 1005661372, 1);
 
 -- --------------------------------------------------------
 
@@ -209,6 +220,14 @@ CREATE TABLE `vehiculos_estados` (
   `placa1` varchar(7) NOT NULL,
   `idestado1` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `vehiculos_estados`
+--
+
+INSERT INTO `vehiculos_estados` (`idvehicul_estado`, `fecha_ingreso`, `diagnostico_entrada`, `fecha_salida`, `diagnostico_salida`, `placa1`, `idestado1`) VALUES
+(1, '2023-05-12', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus cursus magna ultricies pretium rutrum. Nullam lacinia, mi maximus facilisis fermentum, magna tortor congue mi, eu posuere ex ipsum eu neque. Fusce vulputate lacinia odio et rhoncus. Ut aliquet odio feugiat magna tincidunt blandit. Proin facilisis leo et diam dignissim tincidunt.', '2023-05-13', 'Proin nec pharetra diam. Sed maximus dolor laoreet eleifend scelerisque. Morbi aliquet velit metus. Donec eget velit a nisi egestas faucibus. Phasellus quis pharetra odio. Quisque ullamcorper ipsum euismod nisi efficitur, vel blandit odio imperdiet. Nullam id aliquam dui. Mauris scelerisque eget nibh non sodales. Nulla facilisi. Phasellus vulputate egestas urna. Proin ut gravida magna. Morbi mollis venenatis lectus. Nulla ipsum ligula, vestibulum vel venenatis id, aliquet a diam. Proin convallis felis eu placerat molestie.', 'YOU-34F', 5),
+(2, '2023-05-12', 'Ut non tellus vestibulum, pulvinar metus pretium, vestibulum enim. Quisque quis iaculis purus. Duis in dui pharetra, maximus neque ac, lobortis tellus. Proin tincidunt mauris tellus, eget tincidunt lorem aliquet eu. Donec justo lectus, molestie a augue sit amet, mollis aliquet nisl. Vivamus interdum vulputate arcu nec viverra. Fusce consequat leo tortor, scelerisque laoreet justo sollicitudin nec. Sed non sapien ligula.', '0000-00-00', 'Quisque ullamcorper ipsum euismod nisi efficitur, vel blandit odio imperdiet. Nullam id aliquam dui. Mauris scelerisque eget nibh non sodales. Nulla facilisi. Phasellus vulputate egestas urna.', 'WRT-65R', 3);
 
 --
 -- Índices para tablas volcadas
@@ -328,7 +347,7 @@ ALTER TABLE `usuarios_permisos`
 -- AUTO_INCREMENT de la tabla `vehiculos_estados`
 --
 ALTER TABLE `vehiculos_estados`
-  MODIFY `idvehicul_estado` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `idvehicul_estado` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
