@@ -12,7 +12,9 @@
       $diagnostico_entrada = $_POST['diagnostico_entrada'];
       $idestado1 = $_POST['idestado1'];
       $eliminar = $_POST['eliminar'];
-
+      $fecha_salida = $_POST['fecha_salida'];
+     
+      
 
       $consulta_existe = $connection->prepare("SELECT placa FROM vehiculo WHERE PLACA=:placa");
       $consulta_existe->bindParam("placa", $placa, PDO::PARAM_STR);
@@ -35,9 +37,10 @@
                 $result_1 = $consulta_insert1->execute();
 
 
-                $consulta_insert2 = $connection->prepare("INSERT INTO vehiculos_estados(fecha_ingreso,diagnostico_entrada,placa1,idestado1) VALUES (:fecha_ingreso,:diagnostico_entrada,:placa,:idestado1)");
+                $consulta_insert2 = $connection->prepare("INSERT INTO vehiculos_estados(fecha_ingreso,diagnostico_entrada,fecha_salida,placa1,idestado1) VALUES (:fecha_ingreso,:diagnostico_entrada,:fecha_salida,:placa,:idestado1)");
                 $consulta_insert2->bindParam("fecha_ingreso", $fecha_ingreso, PDO::PARAM_STR);
                 $consulta_insert2->bindParam("diagnostico_entrada", $diagnostico_entrada, PDO::PARAM_STR);
+                $consulta_insert2->bindParam("fecha_salida", $fecha_salida, PDO::PARAM_STR);
                 $consulta_insert2->bindParam("placa", $placa, PDO::PARAM_STR);
                 $consulta_insert2->bindParam("idestado1", $idestado1, PDO::PARAM_STR);
                 $result_2 = $consulta_insert2->execute();
@@ -52,9 +55,11 @@
             $connection->rollback();
           // Mostrar un mensaje de error al usuario
           echo "<script> alert('Error: No se guardaron  los datos ❌')</script>";
-          // die($e->getMessage());
+          die($e->getMessage());
+           var_dump($fecha_salida);
         }
-      }      
+      }    
+
     }
 
 
@@ -101,7 +106,7 @@
              
                     <label class="lb-margenTop">Fecha ingreso</label>
                     <input type="date"  name="fecha_ingreso" id="f-ingreso-nuevo-registro" min="<?=$fecha_minima?>" max="<?=$fecha_maxima?>" required>
-                          
+                 
                     <label class="lb-margenTop">Estado</label>
                     <select class="form-control" name="idestado1" id="slt-estados">
                     <option  selected>Seleccione</option>
@@ -117,7 +122,8 @@
                     <textarea class="textarea-dg-entrada" name="diagnostico_entrada" id="d-entrada-nuevo-registro" required></textarea>
                   </div>
                 </div>
-                <input type="hidden" name ="eliminar" value="1">
+                   <input type="hidden"  name="fecha_salida" value="<?=$fecha_salida_defecto?>" >
+                   <input type="hidden" name ="eliminar" value="1">
                   <input type="hidden" name="registrar_vehiculo" value="registrar_vehiculo1234">
                   <input  class="btn-actualizar btn-registrar" type="submit"  value="Registrar">
           </form>

@@ -37,10 +37,11 @@
         $resultado=$query->fetchAll();
     }
 
-	
+	date_default_timezone_set('America/Bogota');
     $fecha_minima = date("Y-m-d"); // Fecha actual
-    $fecha_maxima = date("Y-m-d", strtotime("+1 day")); // Fecha actual + 1 día
-
+    $fecha_maxima = date("Y-m-d"); // Fecha actual + 1 día
+    $fecha_salida_defecto = date("1111-11-11");
+    $fecha_maxima2 = date("Y-m-d", strtotime("+5 day")); // Fecha actual + 1 día
 ?>
 
 
@@ -99,7 +100,13 @@
 							<i class="fas fa-envelope"></i> 
 						</a>
 					</td>
-					<td><?=$fila['fecha_salida']?></td>
+					<td><?php if($fila['fecha_salida']== $fecha_salida_defecto){
+					          echo "0000-00-00";
+					       }else{
+					           echo $fila['fecha_salida'];
+					       }
+					    ?>
+					  </td>
 					<td>
 						<a class="btn btn-app-edit bg-success"  data-toggle="modal" data-target="#modal-lg-D-salida-<?=$contadorVehiculo?>">
 							<i class="fas fa-envelope"></i>

@@ -5,14 +5,20 @@
         $placa = $_POST['placa'];
         $color = $_POST['color'];
         $marca = $_POST['marca'];
-        $fecha_ingreso = $_POST['fecha_ingreso'];
         $diagnostico_entrada = $_POST['diagnostico_entrada'];
         $fecha_salida = $_POST['fecha_salida'];
         $diagnostico_salida  = $_POST['diagnostico_salida'];
         $idestado1 = $_POST['idestado1'];
         $idvehicul_estado = $_POST['idvehicul_estado'];
-
-    
+        var_dump($fecha_salida);
+      if( $fecha_salida==null){
+                
+                 $fecha_salida=date("1111-11-11");
+                
+            }else{ 
+                
+                
+            }
       try {      
           $connection->beginTransaction();
 
@@ -20,9 +26,8 @@
           $consulta_update1->execute(array(':placa' =>$placa,':color' =>$color,':marca' =>$marca));
           
 
-          $consulta_update2=$connection->prepare('UPDATE vehiculos_estados SET  fecha_ingreso = :fecha_ingreso, diagnostico_entrada = :diagnostico_entrada, fecha_salida = :fecha_salida, diagnostico_salida =:diagnostico_salida, idestado1 =:idestado1 WHERE  idvehicul_estado = :idvehicul_estado;');
+          $consulta_update2=$connection->prepare('UPDATE vehiculos_estados SET   diagnostico_entrada = :diagnostico_entrada, fecha_salida = :fecha_salida, diagnostico_salida =:diagnostico_salida, idestado1 =:idestado1 WHERE  idvehicul_estado = :idvehicul_estado;');
           $consulta_update2->execute(array(
-          ':fecha_ingreso' =>$fecha_ingreso,
           ':diagnostico_entrada' =>$diagnostico_entrada, 
           ':fecha_salida' =>$fecha_salida, 
           ':diagnostico_salida' =>$diagnostico_salida,
@@ -67,7 +72,7 @@
 		  <!----------Body------------------------------->
 			<div class="modal-body">
         <!-----------Formulario------------>
-        <form id="form-actualizar-vehiculo" action=" " method="post" class="modal-form">
+        <form id="form-actualizar-vehiculo<?=$contadorVehiculo?>" action=" " method="post" class="modal-form">
           <div class="div-padre-form">  
             <div class="div-hijo1">
               <input type="number" id="idvehiculo" name="idvehicul_estado" value="<?=$fila['idvehicul_estado']?>" required>
@@ -83,11 +88,22 @@
             </div>
 
             <div class="div-hijo2">
-              <label id="f-ingreso">Fecha ingreso</label>
-              <input type="date"  name="fecha_ingreso" value="<?=$fila['fecha_ingreso']?>" id="f-ingreso-actualizar" min="<?=$fecha_minima?>" max="<?=$fecha_maxima?>" required>
-
-              <label>Fecha de salida</label>
-              <input type="date"  name="fecha_salida" value="<?=$fila['fecha_salida']?>" id="f-salida-actualizar" min="<?=$fecha_minima?>" max="<?=$fecha_maxima?>">
+              <label id="f-ingreso">Fecha de salida</label>
+              <?php if ($fila['fecha_salida']==$fecha_salida_defecto){
+                  
+              ?>
+            
+                 <input type="date"  name="fecha_salida" id="f-salida-actualizar">
+                 
+               <?php
+              }else {
+              ?>
+              
+                <input type="date"  name="fecha_salida" value="<?=$fila['fecha_salida']?>" id="f-salida-actualizar">
+                
+             <?php   
+              } ?>
+              
                     
               <label>Estado</label>
               <select class="form-control" name="idestado1" id="slt-estados">
@@ -114,11 +130,11 @@
 		</div>
   </div>
 </div>
-<?php endforeach; ?>
+
 
 
 <!----Ventana modal para confirmar el envio del formulario--->
-<div class="modal fade"  id="modal-confirmar-actualizar-vehiculo">
+<div class="modal fade"  id="modal-confirmar-actualizar-vehiculo<?=$contadorVehiculo?>">
   <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header" style="border-bottom: 4px solid #AEC0FF; font-family: 'Open Sans';">
@@ -138,9 +154,16 @@
 
             <div class="modal-footer justify-content-right" style="border-top:1px solid #D1D5DB;">
               <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn-cambiar" name="actualizar" id="btn-actualizar-vehiculo">Actualizar</button>
+              <button type="submit" class="btn-cambiar" name="actualizar" id="btn-actualizar-vehiculo<?=$contadorVehiculo?>">Actualizar</button>
             </div>
     </div>
   </div>
 </div>
 <!--------------Fin ventana modal-------------->
+
+<?php endforeach; ?>
+
+<!--Input para obtener el numero de modales, y asi pasarlo al js que confirma el envio del formulario-->
+<input type="hidden" value="<?=$contadorVehiculo?>" id="contadorVh">
+<!----Fin Input---------------------------> 
+

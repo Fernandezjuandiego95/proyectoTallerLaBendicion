@@ -1,11 +1,12 @@
 <?php
   
-    if(isset($_POST["eliminar"])){
+    if(isset($_POST["btn-eliminar"])){
 
         $cedula = $_POST['cedula'];
         $eliminar = $_POST['eliminar'];
        
-
+       var_dump($eliminar);
+var_dump($cedula);
     
         $consulta_update1=$connection->prepare('UPDATE usuarios SET eliminar_usuario= :eliminar_usuario WHERE  cedula= :cedula;');
         $consulta_update1->execute(array(':eliminar_usuario' =>$eliminar, ':cedula' => $cedula));
@@ -56,7 +57,7 @@
                       <input type="hidden" name ="eliminar" value="0">
                               
                       <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-                      <button type="submit" class="btn-cambiar" name="eliminar" id="btn-actualizar-vehiculo">Eliminar</button>
+                      <button type="submit" class="btn-cambiar" name="btn-eliminar" id="btn-actualizar-vehiculo">Eliminar</button>
                   </form>
            
             </div>

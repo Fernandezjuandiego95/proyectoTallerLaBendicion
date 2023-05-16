@@ -8,13 +8,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["reingreso_vehiculo"]) 
   $fecha_ingreso = $_POST['fecha_ingreso'];
   $diagnostico_entrada = $_POST['diagnostico_entrada'];
   $idestado1 = $_POST['idestado1'];
+  $fecha_salida = $_POST['fecha_salida'];
 
     try {      
           $connection->beginTransaction();
 
-          $consulta_reingreso = $connection->prepare("INSERT INTO vehiculos_estados(fecha_ingreso,diagnostico_entrada,placa1,idestado1) VALUES (:fecha_ingreso,:diagnostico_entrada,:placa,:idestado1)");
+          $consulta_reingreso = $connection->prepare("INSERT INTO vehiculos_estados(fecha_ingreso,diagnostico_entrada,fecha_salida,placa1,idestado1) VALUES (:fecha_ingreso,:diagnostico_entrada,:fecha_salida,:placa,:idestado1)");
           $consulta_reingreso->bindParam("fecha_ingreso", $fecha_ingreso, PDO::PARAM_STR);
           $consulta_reingreso->bindParam("diagnostico_entrada", $diagnostico_entrada, PDO::PARAM_STR);
+          $consulta_reingreso->bindParam("fecha_salida", $fecha_salida, PDO::PARAM_STR);
           $consulta_reingreso->bindParam("placa", $placa, PDO::PARAM_STR);
           $consulta_reingreso->bindParam("idestado1", $idestado1, PDO::PARAM_STR);
           $result_reingreso = $consulta_reingreso->execute();
@@ -29,6 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["reingreso_vehiculo"]) 
         $connection->rollback();
     // Mostrar un mensaje de error al usuario
     echo "<script> alert('Error: No se guardaron  los datos ❌')</script>";
+    //die($e->getMessage());
+        
     }
         
 }
@@ -78,6 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["reingreso_vehiculo"]) 
                 <textarea class="textarea-dg-entrada-reingreso" name="diagnostico_entrada" id="d-entrada-nuevo-reingreso" required></textarea>
               </div>
             </div>
+              <input type="hidden"  name="fecha_salida" value="<?=$fecha_salida_defecto?>" >
               <input type="hidden" name="reingreso_vehiculo" value="reingreso_vehiculo141">
               <input  class="btn-actualizar btn-registrar" type="submit"  value="Registrar">
       </form>

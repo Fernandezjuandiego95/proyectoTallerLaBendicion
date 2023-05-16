@@ -1,0 +1,106 @@
+
+Fri, 12 May 2023 23:30:39 +0000 : NO senderId 
+
+Fri, 12 May 2023 23:30:39 +0000 : NO concat 
+
+Fri, 12 May 2023 23:30:39 +0000 : NO encoding
+
+Fri, 12 May 2023 23:30:41 +0000 : Error sending SMS: Failed to connect to www.altiria.net port 8443 after 1228 ms: Couldn't connect to server(7)
+
+Fri, 12 May 2023 23:35:17 +0000 : NO senderId 
+
+Fri, 12 May 2023 23:35:17 +0000 : NO concat 
+
+Fri, 12 May 2023 23:35:17 +0000 : NO encoding
+
+Fri, 12 May 2023 23:35:18 +0000 : Error sending SMS: Failed to connect to www.altiria.net port 8443 after 1003 ms: Couldn't connect to server(7)
+
+Fri, 12 May 2023 23:35:49 +0000 : NO senderId 
+
+Fri, 12 May 2023 23:35:49 +0000 : NO concat 
+
+Fri, 12 May 2023 23:35:49 +0000 : NO encoding
+
+Fri, 12 May 2023 23:35:50 +0000 : Error sending SMS: Failed to connect to www.altiria.net port 8443 after 1005 ms: Couldn't connect to server(7)
+
+Sat, 13 May 2023 22:16:08 +0000 : NO senderId 
+
+Sat, 13 May 2023 22:16:08 +0000 : NO concat 
+
+Sat, 13 May 2023 22:16:08 +0000 : NO encoding
+
+Sat, 13 May 2023 22:16:10 +0000 : Error sending SMS: Failed to connect to www.altiria.net port 8443 after 1234 ms: Couldn't connect to server(7)
+
+Mon, 15 May 2023 15:44:24 +0000 : NO senderId 
+
+Mon, 15 May 2023 15:44:24 +0000 : NO concat 
+
+Mon, 15 May 2023 15:44:24 +0000 : NO encoding
+
+Mon, 15 May 2023 15:44:25 +0000 : Error sending SMS: Failed to connect to www.altiria.net port 8443 after 1327 ms: Couldn't connect to server(7)
+
+Tue, 16 May 2023 14:07:26 +0000 : NO senderId 
+
+Tue, 16 May 2023 14:07:26 +0000 : NO concat 
+
+Tue, 16 May 2023 14:07:26 +0000 : NO encoding
+
+Tue, 16 May 2023 14:07:27 +0000 : Error sending SMS: Failed to connect to www.altiria.net port 8443 after 1268 ms: Couldn't connect to server(7)
+
+Tue, 16 May 2023 14:17:57 +0000 : NO senderId 
+
+Tue, 16 May 2023 14:17:57 +0000 : NO concat 
+
+Tue, 16 May 2023 14:17:57 +0000 : NO encoding
+
+Tue, 16 May 2023 14:17:58 +0000 : Error sending SMS: Failed to connect to www.altiria.net port 8443 after 1005 ms: Couldn't connect to server(7)
+
+Tue, 16 May 2023 14:31:25 +0000 : NO senderId 
+
+Tue, 16 May 2023 14:31:25 +0000 : NO concat 
+
+Tue, 16 May 2023 14:31:25 +0000 : NO encoding
+
+Tue, 16 May 2023 14:31:26 +0000 : Error sending SMS: Failed to connect to www.altiria.net port 8443 after 1006 ms: Couldn't connect to server(7)
+
+Tue, 16 May 2023 14:32:54 +0000 : NO senderId 
+
+Tue, 16 May 2023 14:32:54 +0000 : NO concat 
+
+Tue, 16 May 2023 14:32:54 +0000 : NO encoding
+
+Tue, 16 May 2023 14:32:55 +0000 : Server Altiria response: ERROR errNum:002
+
+Tue, 16 May 2023 14:32:55 +0000 : Error sending SMS: ERROR errNum:002
+
+Tue, 16 May 2023 14:53:46 +0000 : NO senderId 
+
+Tue, 16 May 2023 14:53:46 +0000 : NO concat 
+
+Tue, 16 May 2023 14:53:46 +0000 : NO encoding
+
+Tue, 16 May 2023 14:53:47 +0000 : Error sending SMS: Failed to connect to www.altiria.net port 8443 after 1193 ms: Couldn't connect to server(7)
+
+Tue, 16 May 2023 14:54:29 +0000 : NO senderId 
+
+Tue, 16 May 2023 14:54:29 +0000 : NO concat 
+
+Tue, 16 May 2023 14:54:29 +0000 : NO encoding
+
+Tue, 16 May 2023 14:54:30 +0000 : Error sending SMS: Failed to connect to www.altiria.net port 8443 after 1003 ms: Couldn't connect to server(7)
+
+Tue, 16 May 2023 15:08:51 +0000 : NO senderId 
+
+Tue, 16 May 2023 15:08:51 +0000 : NO concat 
+
+Tue, 16 May 2023 15:08:51 +0000 : NO encoding
+
+Tue, 16 May 2023 15:08:52 +0000 : Error sending SMS: Failed to connect to www.altiria.net port 8443 after 1190 ms: Couldn't connect to server(7)
+
+Tue, 16 May 2023 15:09:17 +0000 : NO senderId 
+
+Tue, 16 May 2023 15:09:17 +0000 : NO concat 
+
+Tue, 16 May 2023 15:09:17 +0000 : NO encoding
+
+Tue, 16 May 2023 15:09:18 +0000 : Error sending SMS: Failed to connect to www.altiria.net port 8443 after 1004 ms: Couldn't connect to server(7)

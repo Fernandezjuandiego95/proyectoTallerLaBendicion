@@ -1,5 +1,6 @@
 <?php
 
+
 // Copyright (c) 2020, Altiria TIC SL
 
 // All rights reserved.
@@ -247,6 +248,7 @@ class AltiriaSMS {
 	}
 
 }
+
 
 ?>
 

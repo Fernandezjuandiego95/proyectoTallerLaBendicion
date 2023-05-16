@@ -1,6 +1,6 @@
 <?php
   
-    if(isset($_POST["eliminar"])){
+    if(isset($_POST["btn-eliminar-vehiculo"])){
 
         $placa = $_POST['placa'];
         $eliminar = $_POST['eliminar'];
@@ -56,7 +56,7 @@
                       <input type="hidden" name ="eliminar" value="0">
                               
                       <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-                      <button type="submit" class="btn-cambiar" name="eliminar" id="btn-actualizar-vehiculo">Eliminar</button>
+                      <button type="submit" class="btn-cambiar" name="btn-eliminar-vehiculo" id="btn-actualizar-vehiculo">Eliminar</button>
                   </form>
            
             </div>

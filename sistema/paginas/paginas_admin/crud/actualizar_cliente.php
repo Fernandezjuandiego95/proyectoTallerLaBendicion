@@ -7,19 +7,16 @@
         $apellidoCliente = $_POST['apellidoCliente'];
         $direccionCliente = $_POST['direccionCliente'];
         $celularCliente = $_POST['celularCliente'];
-        $passwordCliente = $_POST['passwordCliente'];
-        $password_hash = password_hash($passwordCliente, PASSWORD_BCRYPT);
-       
+ 
       try {      
 
-        $consulta_update_clt=$connection->prepare('UPDATE usuarios SET  cedula = :cedulaCliente, nombre = :nombreCliente, apellido = :apellidoCliente, direccion = :direccionCliente, celular = :celularCliente, password = :password_hash  WHERE  cedula = :cedulaCliente;');
+        $consulta_update_clt=$connection->prepare('UPDATE usuarios SET  nombre = :nombreCliente, apellido = :apellidoCliente, direccion = :direccionCliente, celular = :celularCliente WHERE  cedula = :cedulaCliente;');
         $consulta_update_clt->execute(array(
           ':cedulaCliente' =>$cedulaCliente,
           ':nombreCliente' =>$nombreCliente, 
           ':apellidoCliente' =>$apellidoCliente, 
           ':direccionCliente' =>$direccionCliente,
-            ':celularCliente' =>$celularCliente,
-            ':password_hash' =>$password_hash
+            ':celularCliente' =>$celularCliente
           ));
               
           header('Location: index.php?home=2');
@@ -55,7 +52,7 @@
 		  <!----------Body------------------------------->
 		  <div class="modal-body">
                 <!-----------Formulario------------>
-                <form id="form-actualizar-cliente" action=" " method="post" class="modal-form-usuarios">
+                <form id="form-actualizar-cliente<?=$contadorCliente?>" action=" " method="post" class="modal-form-usuarios">
                     <div class="div-padre-form form-usuarios"> 
                             <div class="div-hijo1 panel-admin-div-h">
                                 <label class="lb-margenTopCero">Cedula de Ciudadania</label>
@@ -69,10 +66,8 @@
                             </div>
 
                             <div class="div-hijo2 panel-admin-div-h">
-                                <label class="lb-margenTopCero">Contraseña</label>
-                                <input type="password"  name="passwordCliente" value="<?=$fila['password']?>" id="password-actualizar-cliente" required>
-                        
-                                <label class="lb-margenTop">Direccion</label>
+                                
+                                <label class="lb-margenTopCero">Direccion</label>
                                 <input type="text"  name="direccionCliente" value="<?=$fila['direccion']?>" id="direccion-actualizar-cliente" required>
                                     
                                 <label class="lb-margenTop">Celular</label>
@@ -87,11 +82,11 @@
 		</div>
     </div>
 </div>
-<?php endforeach; ?>
+
 
 
 <!----Ventana modal para confirmar el envio del formulario--->
-<div class="modal fade"  id="modal-confirmar-actualizar-cliente">
+<div class="modal fade"  id="modal-confirmar-actualizar-cliente<?=$contadorCliente?>">
   <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header" style="border-bottom: 4px solid #AEC0FF; font-family: 'Open Sans';">
@@ -111,9 +106,15 @@
 
             <div class="modal-footer justify-content-right" style="border-top:1px solid #D1D5DB;">
               <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn-cambiar" name="actualizar" id="btn-actualizar-cliente">Actualizar</button>
+              <button type="submit" class="btn-cambiar" name="actualizar" id="btn-actualizar-cliente<?=$contadorCliente?>">Actualizar</button>
             </div>
     </div>
   </div>
 </div>
 <!--------------Fin ventana modal-------------->
+
+<?php endforeach; ?>
+
+<!--Input para obtener el numero de modales, y asi pasarlo al js que confirma el envio del formulario-->
+<input type="hidden" value="<?=$contadorCliente?>" id="contadorClt">
+<!----Fin Input---------------------------> 

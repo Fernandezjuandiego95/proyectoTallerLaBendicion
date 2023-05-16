@@ -1,4 +1,5 @@
 <?php
+
 // Copyright (c) 2020, Altiria TIC SL
 // All rights reserved.
 // El uso de este c�digo de ejemplo es solamente para mostrar el uso de la pasarela de env�o de SMS de Altiria
@@ -29,6 +30,7 @@ $altiriaSMS->setDebug(true);
 
 //$sDestination = '346xxxxxxxx';
 $sDestination = $celular2;
+var_dump($sDestination);
 //$sDestination = array('346xxxxxxxx','346yyyyyyyy');
 
 $response = $altiriaSMS->sendSMS($sDestination, "Motorepuestos la Bendicion informa que puede pasar por su vehiculo");

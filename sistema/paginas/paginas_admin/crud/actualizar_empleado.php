@@ -7,21 +7,17 @@
         $apellidoEmpleado = $_POST['apellidoEmpleado'];
         $direccionEmpleado = $_POST['direccionEmpleado'];
         $celularEmpleado = $_POST['celularEmpleado'];
-        $passwordEmpleado = $_POST['passwordEmpleado'];
-        $password_hash = password_hash($passwordEmpleado, PASSWORD_BCRYPT);
-       
 
     
       try {      
 
-        $consulta_update_empld=$connection->prepare('UPDATE usuarios SET  cedula = :cedulaEmpleado, nombre = :nombreEmpleado, apellido = :apellidoEmpleado, direccion = :direccionEmpleado, celular = :celularEmpleado, password = :password_hash  WHERE  cedula = :cedulaEmpleado;');
+        $consulta_update_empld=$connection->prepare('UPDATE usuarios SET   nombre = :nombreEmpleado, apellido = :apellidoEmpleado, direccion = :direccionEmpleado, celular = :celularEmpleado  WHERE  cedula = :cedulaEmpleado;');
         $consulta_update_empld->execute(array(
           ':cedulaEmpleado' =>$cedulaEmpleado,
           ':nombreEmpleado' =>$nombreEmpleado, 
           ':apellidoEmpleado' =>$apellidoEmpleado, 
           ':direccionEmpleado' =>$direccionEmpleado,
-            ':celularEmpleado' =>$celularEmpleado,
-            ':password_hash' =>$password_hash
+            ':celularEmpleado' =>$celularEmpleado
           ));
               
           header('Location: index.php?home=1');
@@ -57,7 +53,7 @@
 		  <!----------Body------------------------------->
 		  <div class="modal-body">
                 <!-----------Formulario------------>
-                <form id="form-actualizar-empleado" action=" " method="post" class="modal-form-usuarios">
+                <form id="form-actualizar-empleado<?=$contadorEmpleado?>" action=" " method="post" class="modal-form-usuarios">
                     <div class="div-padre-form form-usuarios"> 
                             <div class="div-hijo1 panel-admin-div-h">
                                 <label class="lb-margenTopCero">Cedula de Ciudadania</label>
@@ -71,10 +67,8 @@
                             </div>
 
                             <div class="div-hijo2 panel-admin-div-h">
-                                <label class="lb-margenTopCero">Contraseña</label>
-                                <input type="password"  name="passwordEmpleado" value="<?=$fila['password']?>" id="password-actualizar-empleado" required>
-                        
-                                <label class="lb-margenTop">Direccion</label>
+                               
+                                <label class="lb-margenTopCero">Direccion</label>
                                 <input type="text"  name="direccionEmpleado" value="<?=$fila['direccion']?>" id="direccion-actualizar-empleado" required>
                                     
                                 <label class="lb-margenTop">Celular</label>
@@ -89,11 +83,11 @@
 		</div>
     </div>
 </div>
-<?php endforeach; ?>
+
 
 
 <!----Ventana modal para confirmar el envio del formulario--->
-<div class="modal fade"  id="modal-confirmar-actualizar-empleado">
+<div class="modal fade"  id="modal-confirmar-actualizar-empleado<?=$contadorEmpleado?>">
   <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header" style="border-bottom: 4px solid #AEC0FF; font-family: 'Open Sans';">
@@ -113,9 +107,15 @@
 
             <div class="modal-footer justify-content-right" style="border-top:1px solid #D1D5DB;">
               <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn-cambiar" name="actualizar" id="btn-actualizar-empleado">Actualizar</button>
+              <button type="submit" class="btn-cambiar" name="actualizar" id="btn-actualizar-empleado<?=$contadorEmpleado?>">Actualizar</button>
             </div>
     </div>
   </div>
 </div>
 <!--------------Fin ventana modal-------------->
+
+<?php endforeach; ?>
+
+<!--Input para obtener el numero de modales, y asi pasarlo al js que confirma el envio del formulario-->
+<input type="hidden" value="<?=$contadorEmpleado?>" id="contadorEmpl">
+<!----Fin Input---------------------------> 
