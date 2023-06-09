@@ -104,3 +104,54 @@ Tue, 16 May 2023 15:09:17 +0000 : NO concat
 Tue, 16 May 2023 15:09:17 +0000 : NO encoding
 
 Tue, 16 May 2023 15:09:18 +0000 : Error sending SMS: Failed to connect to www.altiria.net port 8443 after 1004 ms: Couldn't connect to server(7)
+
+Tue, 16 May 2023 22:43:54 +0200 : NO senderId 
+
+Tue, 16 May 2023 22:43:54 +0200 : NO concat 
+
+Tue, 16 May 2023 22:43:54 +0200 : NO encoding
+
+Tue, 16 May 2023 22:44:00 +0200 : Server Altiria response: OK dest:573004320257
+
+
+Thu, 25 May 2023 16:21:53 +0200 : NO senderId 
+
+Thu, 25 May 2023 16:21:53 +0200 : NO concat 
+
+Thu, 25 May 2023 16:21:53 +0200 : NO encoding
+
+Thu, 25 May 2023 16:21:53 +0200 : Error sending SMS: Could not resolve host: www.altiria.net(6)
+
+Thu, 25 May 2023 16:22:10 +0200 : NO senderId 
+
+Thu, 25 May 2023 16:22:10 +0200 : NO concat 
+
+Thu, 25 May 2023 16:22:10 +0200 : NO encoding
+
+Thu, 25 May 2023 16:22:10 +0200 : Error sending SMS: Could not resolve host: www.altiria.net(6)
+
+Thu, 25 May 2023 16:24:04 +0200 : NO senderId 
+
+Thu, 25 May 2023 16:24:04 +0200 : NO concat 
+
+Thu, 25 May 2023 16:24:04 +0200 : NO encoding
+
+Thu, 25 May 2023 16:24:19 +0200 : Server Altiria response: OK dest:573017256135
+
+
+Thu, 25 May 2023 16:50:46 +0200 : NO senderId 
+
+Thu, 25 May 2023 16:50:46 +0200 : NO concat 
+
+Thu, 25 May 2023 16:50:46 +0200 : NO encoding
+
+Thu, 25 May 2023 16:50:46 +0200 : Error sending SMS: Could not resolve host: www.altiria.net(6)
+
+Fri, 26 May 2023 14:19:33 +0200 : NO senderId 
+
+Fri, 26 May 2023 14:19:33 +0200 : NO concat 
+
+Fri, 26 May 2023 14:19:33 +0200 : NO encoding
+
+Fri, 26 May 2023 14:19:43 +0200 : Server Altiria response: OK dest:573017256135
+
